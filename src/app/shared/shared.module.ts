@@ -4,7 +4,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { SliderComponent } from './slider/slider.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-import {MaterialModule} from '../../material.module'
+import {MaterialModule} from '../../material.module';
 @NgModule({
   declarations: [NavigationComponent, SliderComponent, FooterComponent, HeaderComponent],
   imports: [

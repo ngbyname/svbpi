@@ -1,1 +1,55 @@
-<p>result works!</p>
+<div class="result-form">
+    <div class="container">
+        <div class="row">
+            <div class="form-block">
+                <!-- Form starts -->
+                <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                    <div formGroupName="fullName">
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+                                <label>First name</label>
+                                <input type="text" class="form-control" formControlName="firstName">
+                            </div>
+                            <div class="col-md-6">
+                                <label>Last name</label>
+                                <input type="text" class="form-control" formControlName="lastName">
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="parent-details" formGroupName="parentsName">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Father's name</label>
+                                <input type="text" class="form-control" formControlName="fatherName">
+                            </div>
+                            <div class="col-md-6">
+                                <label>Mother's name</label>
+                                <input type="text" class="form-control" formControlName="motherName">
+                            </div>
+                        </div>
+                    </div>
+                        <div class="row">
+                            <div class="col-md-3 col-xs-12">
+                                <label>First name</label>
+                                <input type="text" class="form-control" formControlName="firstName">
+                            </div>
+                            <div class="col-md-3">
+                                <label>Last name</label>
+                                <input type="text" class="form-control" formControlName="lastName">
+                            </div>
+                            <div class="col-md-3">
+                                <label>Father's name</label>
+                                <input type="text" class="form-control" formControlName="fatherName">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Submit Button -->
+                    <div class="form-btn-block">
+                        <button type="submit" class="btn btn-danger btn-lg btn-block">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
