@@ -1,0 +1,109 @@
+<div class="main-page">
+  <section class="banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="header">
+            <mat-carousel
+              timings="250ms ease-in"
+              [autoplay]="true"
+              interval="5000"
+              color="accent"
+              maxWidth="auto"
+              proportion="25"
+              slides="3"
+              [loop]="true"
+              [hideArrows]="false"
+              [hideIndicators]="false"
+              [useKeyboard]="true"
+              [useMouseWheel]="false"
+              orientation="ltr"
+            >
+
+              <mat-carousel-slide
+                #matCarouselSlide
+                *ngFor="let slide of slides; let i = index"
+                [image]="slide.image"
+                overlayColor="#000040"
+                [hideOverlay]="false"
+              ></mat-carousel-slide>
+            </mat-carousel>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="info-part pd-40">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 col-xs-12">
+          <div class="header">
+            <div class="title">
+              <h2>Turn your ambition into a success story</h2>
+            </div>
+            <div class="content">
+             <p class="fs-16">Sardar Vallabh Bhai Patel industrial Training Institute is a registered trade mark division of Sardar Vallabh Bhai Patel industrial Training Institute Regd. to Govt of NCT Delhi having its Regt. no 3274.This society is registered by Govt. of India under society ACT 1860 under 21 provisions.SVBPI is also an authorized organization for running not only IT Education but vocational education like FD/NTT/NPTT/Cutting & tailoring.</p>
+             <ul>
+               <li>
+                <div class="fun-fact">
+                  <span class="timer" data-to="168" data-speed="5000">168</span>
+                  <span class="medium">Online Courses</span>
+                </div>
+               </li>
+               <li>
+                <div class="fun-fact">
+                  <span class="timer" data-to="168" data-speed="5000">168</span>
+                  <span class="medium">Online Courses</span>
+                </div>
+               </li>
+             </ul>
+             <a class="red-btn">Explore Courses</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-xs-12">
+          <div class="side-img">
+            <img src="assets/image/side-img.jpeg" class="img-responsive">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="mission-part pd-40 bg-gray">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="header">
+            <div class="title">
+              <h2>Our Missions</h2>
+            </div>
+            <div class="content">
+             <p class="fs-16">Our mission is to provide a safe and supportive learning environment with opportunities for each student to develop the technical skills & knowledge to become a social, responsible and successful citizen of India</p>
+             <a class="red-btn">Explore Courses</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="profile-part pd-40">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="header">
+            <div class="title-2">
+              <h5>INSTITUTE PROFILE</h5>
+              <h2 class="fs-24">Sardar Vallabh Bhai Patel Industrial Training Institute</h2>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 offset-lg-1">
+          <p class="fs-18">
+            Sardar Vallabh Bhai Patel industrial Training Institute is a registered trade mark division of INDRA GANDHI EDUCATIONAL SOCIETY. Regd. to Govt of NCT Delhi having its Regt. no 3274,This society is registered by Govt. of India under society ACT 1860 under 21 provision.
+          </p>
+          <a class="dark-btn btn-animation">View All</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

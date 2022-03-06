@@ -104,12 +104,6 @@
         "worker-plugin": "5.0.0"
       },
       "dependencies": {
-        "parse5": {
-          "version": "6.0.1",
-          "resolved": "https://registry.npmjs.org/parse5/-/parse5-6.0.1.tgz",
-          "integrity": "sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==",
-          "dev": true
-        },
         "rxjs": {
           "version": "6.6.2",
           "resolved": "https://registry.npmjs.org/rxjs/-/rxjs-6.6.2.tgz",
@@ -255,6 +249,14 @@
       "requires": {
         "parse5": "^5.0.0",
         "tslib": "^2.0.0"
+      },
+      "dependencies": {
+        "parse5": {
+          "version": "5.1.1",
+          "resolved": "https://registry.npmjs.org/parse5/-/parse5-5.1.1.tgz",
+          "integrity": "sha512-ugq4DFI0Ptb+WWjAdOK16+u/nHfiIrcE+sh8kZMaM0WllQKLI9rOUq6c2b7cwPkXdzfQESqvoqK6ug7U/Yyzug==",
+          "optional": true
+        }
       }
     },
     "@angular/cli": {
@@ -479,11 +481,11 @@
       }
     },
     "@angular/flex-layout": {
-      "version": "11.0.0-beta.33",
-      "resolved": "https://registry.npmjs.org/@angular/flex-layout/-/flex-layout-11.0.0-beta.33.tgz",
-      "integrity": "sha512-unfhw3abZuKtdwQicRStHCYGbANPTHYg4WNRQk/RC5Mxq+4WOp4Q8HI7GqRHCGUYDCGUP7w1sU/oDt8f09nM8w==",
+      "version": "13.0.0-beta.38",
+      "resolved": "https://registry.npmjs.org/@angular/flex-layout/-/flex-layout-13.0.0-beta.38.tgz",
+      "integrity": "sha512-kcWb7CcoHbvw7fjo/knizWVmSSmvaTnr8v1ML6zOdxu1PK9UPPOcOS8RTm6fy61zoC2LABivP1/6Z2jF5XfpdQ==",
       "requires": {
-        "tslib": "^2.0.0"
+        "tslib": "^2.3.0"
       }
     },
     "@angular/forms": {
@@ -1677,21 +1679,6 @@
       "version": "6.2.0",
       "resolved": "https://registry.npmjs.org/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-6.2.0.tgz",
       "integrity": "sha512-wqwhnJFyEwvzWQJjXrEt+7oBTSvu2qPbdYvUFYhDVzOJLWB5M7YEhDAkMrfHQJ0pZNBMGr580FqYue+XiURY0Q=="
-    },
-    "@ngmodule/material-carousel": {
-      "version": "0.6.0",
-      "resolved": "https://registry.npmjs.org/@ngmodule/material-carousel/-/material-carousel-0.6.0.tgz",
-      "integrity": "sha512-k3Os2TfbX69oa3AvG46sQflwuR836mUPpfRFcbMHkxEXw1uc9pAo2mEbmA9Srv9R9Mj0eJLeu0chNR7fuyzodQ==",
-      "requires": {
-        "tslib": "^1.9.0"
-      },
-      "dependencies": {
-        "tslib": {
-          "version": "1.14.1",
-          "resolved": "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz",
-          "integrity": "sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg=="
-        }
-      }
     },
     "@ngtools/webpack": {
       "version": "10.2.4",
@@ -3026,9 +3013,9 @@
       }
     },
     "caniuse-lite": {
-      "version": "1.0.30001313",
-      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001313.tgz",
-      "integrity": "sha512-rI1UN0koZUiKINjysQDuRi2VeSCce3bYJNmDcj3PIKREiAmjakugBul1QSkg/fPrlULYl6oWfGg3PbgOSY9X4Q==",
+      "version": "1.0.30001312",
+      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001312.tgz",
+      "integrity": "sha512-Wiz1Psk2MEK0pX3rUzWaunLTZzqS2JYZFzNKqAiJGiuxIjRPLgV6+VDPOg6lQOUxmDwhTlh198JsTTi8Hzw6aQ==",
       "dev": true
     },
     "canonical-path": {
@@ -4395,9 +4382,9 @@
       "dev": true
     },
     "electron-to-chromium": {
-      "version": "1.4.76",
-      "resolved": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.76.tgz",
-      "integrity": "sha512-3Vftv7cenJtQb+k00McEBZ2vVmZ/x+HEF7pcZONZIkOsESqAqVuACmBxMv0JhzX7u0YltU0vSqRqgBSTAhFUjA==",
+      "version": "1.4.75",
+      "resolved": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.75.tgz",
+      "integrity": "sha512-LxgUNeu3BVU7sXaKjUDD9xivocQLxFtq6wgERrutdY/yIOps3ODOZExK1jg8DTEg4U8TUCb5MLGeWFOYuxjF3Q==",
       "dev": true
     },
     "elliptic": {
@@ -8837,10 +8824,10 @@
       }
     },
     "parse5": {
-      "version": "5.1.1",
-      "resolved": "https://registry.npmjs.org/parse5/-/parse5-5.1.1.tgz",
-      "integrity": "sha512-ugq4DFI0Ptb+WWjAdOK16+u/nHfiIrcE+sh8kZMaM0WllQKLI9rOUq6c2b7cwPkXdzfQESqvoqK6ug7U/Yyzug==",
-      "optional": true
+      "version": "6.0.1",
+      "resolved": "https://registry.npmjs.org/parse5/-/parse5-6.0.1.tgz",
+      "integrity": "sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==",
+      "dev": true
     },
     "parse5-htmlparser2-tree-adapter": {
       "version": "6.0.1",
@@ -8849,14 +8836,6 @@
       "dev": true,
       "requires": {
         "parse5": "^6.0.1"
-      },
-      "dependencies": {
-        "parse5": {
-          "version": "6.0.1",
-          "resolved": "https://registry.npmjs.org/parse5/-/parse5-6.0.1.tgz",
-          "integrity": "sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==",
-          "dev": true
-        }
       }
     },
     "parseqs": {

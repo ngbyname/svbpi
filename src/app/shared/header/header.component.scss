@@ -1,0 +1,15 @@
+.top-bar-area.inc-border {
+  border-bottom: 1px solid #e7e7e7;
+}
+.top-bar-area {
+  padding: 10px 0;
+}
+.top-bar-area .item-flex {
+  display: flex;
+  align-items: center;
+}
+.logo{
+  max-width: 100%;
+  display: inline-block;
+  width: 30%;
+}
