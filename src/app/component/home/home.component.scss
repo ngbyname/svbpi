@@ -58,3 +58,48 @@ h5::after {
   font-size: 16px;
   line-height: 22px;
 }
+.categories-area .categories-box .item.torchred a {
+  background: #FF1949;
+}
+.categories-area .categories-box .item.malachite a {
+  background: #10c45c;
+}
+.categories-area .category-box.multi-color .item.malachite a::after {
+  background: #10c45c none repeat scroll 0 0;
+}
+.categories-area .categories-box .item.tulip a {
+  background: #eab830;
+}
+.categories-area .categories-box .item.mariner a {
+  background: #307ad5;
+}
+.categories-area .category-box.multi-color .item.mariner a::after {
+  background: #307ad5 none repeat scroll 0 0;
+}
+.categories-area .categories-box .item {
+  background-size: cover;
+  background-position: center center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #cccccc;
+}
+.categories-area .categories-box .categories-carousel .item i {
+  font-size: 50px;
+  margin-bottom: 25px;
+}
+ .item i {
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  font-size: 60px;
+}
+ .item h5 {
+  text-transform: capitalize;
+  font-weight: 700;
+  margin: 0;
+  font-size: 18px;
+}
+.item p {
+  margin-bottom: 0;
+  margin-top: 15px;
+}

@@ -11,5 +11,114 @@
 .logo{
   max-width: 100%;
   display: inline-block;
-  width: 30%;
+  width: 40%;
+}
+.align-center {
+  align-items: center;
+}
+ .left-info {
+  text-align: left;
+}
+ .right-info {
+  text-align: right;
+}
+.top-bar-area.inc-border {
+    border-bottom: 1px solid #e7e7e7;
+}
+.top-bar-area {
+  padding: 10px 0;
+}
+.bg-dark {
+  background: #111d30 !important;
+}
+.text-light {
+  color: #f8f9fa!important;
+}
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1140px;
+}
+.top-bar-area .item-flex {
+  display: flex;
+  align-items: center;
+}
+ul {
+  margin: 0;
+  list-style-type: none;
+}
+ li, .top-bar-area .list li a {
+  font-weight: 600;
+}
+.left-info li {
+  margin-right: 20px;
+}
+.top-bar-area .list li i {
+  color: #FF1949;
+}
+.top-bar-area li i {
+  margin-right: 7px;
+}
+.fa, .fas {
+  font-weight: 900;
+  font-family: "Font Awesome 5 Free";
+}
+.col-lg-5 {
+  -ms-flex: 0 0 41.666667%;
+  flex: 0 0 41.666667%;
+  max-width: 41.666667%;
+}
+.top-bar-area .right-info .item-flex {
+  justify-content: flex-end;
+}
+.top-bar-area .item-flex {
+  display: flex;
+  align-items: center;
+}
+.top-bar-area li {
+  display: inline-block;
+}
+.top-bar-area.bg-dark .social a {
+  color: #ffffff;
+}
+.top-bar-area .right-info .social a {
+  margin-left: 0;
+  margin-right: 20px;
+}
+.top-bar-area .social a {
+  display: inline-block;
+  margin-left: 20px;
+}
+.fab {
+  font-family: "Font Awesome 5 Brands";
+}
+.top-bar-area .social i {
+    margin: 0;
+}
+.top-bar-area li i {
+    margin-right: 7px;
+}
+.fab {
+    font-family: "Font Awesome 5 Brands";
+}
+.fa, .fab, .fal, .far, .fas {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+user agent stylesheet
+i {
+    font-style: italic;
+}
+.top-bar-area.bg-dark .social a {
+    color: #ffffff;
 }

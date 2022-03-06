@@ -70,3 +70,14 @@ ul {
     margin-left: 20px;
     display: inline-block;
 }
+img {
+    max-width: 50%;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    outline: none;
+}
+.float-right {
+    float: right !important;
+}
