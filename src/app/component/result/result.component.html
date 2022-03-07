@@ -1,5 +1,24 @@
+<section class="page-header" style="background: url('assets/img/logoinstituteName.jpeg');">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            </div>
+        </div>
+    </div>
+</section>
+
+ 
 <div class="result-form">
     <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title">
+                    <h2 >
+                        Registration Form
+                    </h2>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="form-block">
                 <!-- Form starts -->
@@ -9,7 +28,7 @@
                             <div formGroupName="fullName">
                                 <div class="row">
                                     <div class="col-md-6 col-xs-12">
-                                        <mat-form-field appearance="legacy">
+                                        <mat-form-field appearance="legacy" class="reg-form-field">
                                             <mat-label>First Name</mat-label>
                                             <input matInput placeholder="First Name" formControlName="firstName">
                                         </mat-form-field>
@@ -17,7 +36,7 @@
                                         <input type="text" class="form-control" formControlName="firstName"> -->
                                     </div>
                                     <div class="col-md-6">
-                                        <mat-form-field appearance="legacy">
+                                        <mat-form-field appearance="legacy" class="reg-form-field">
                                             <mat-label>Last Name</mat-label>
                                             <input matInput placeholder="Last Name" formControlName="lastName">
                                         </mat-form-field>
@@ -29,13 +48,13 @@
                             <div class="parent-details" formGroupName="parentsDetails">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <mat-form-field appearance="legacy">
+                                        <mat-form-field appearance="legacy" class="reg-form-field">
                                             <mat-label>Father's name</mat-label>
                                             <input matInput placeholder="Father's Name" formControlName="fatherName">
                                         </mat-form-field>
                                     </div>
                                     <div class="col-md-6">
-                                        <mat-form-field appearance="legacy">
+                                        <mat-form-field appearance="legacy" class="reg-form-field">
                                             <mat-label>Mother's name</mat-label>
                                             <input matInput placeholder="Mother's name" formControlName="motherName">
                                         </mat-form-field>
@@ -47,7 +66,7 @@
                     <div class="student-details">
                         <div class="row">
                             <div class="col-md-3">
-                                <mat-form-field color="accent" appearance="fill">
+                                <mat-form-field color="accent" appearance="fill" class="reg-form-field">
                                     <mat-label>Enter DOB</mat-label>
                                     <input matInput [matDatepicker]="picker1" formControlName="dob">
                                     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -57,40 +76,56 @@
                                 <input type="date" class="form-control" formControlName="dob"> -->
                             </div>
                             <div class="col-md-3">
-                                <label>Course Name</label>
-                                <input type="text" class="form-control" formControlName="courseName">
+                                <mat-form-field appearance="legacy" class="reg-form-field">
+                                    <mat-label>Course Name</mat-label>
+                                    <input matInput placeholder="Course Name" formControlName="courseName">
+                                </mat-form-field>
                             </div>
                             <div class="col-md-3">
-                                <label>Enrollment No</label>
-                                <input type="text" class="form-control" formControlName="enrollmentNo">
+                                <mat-form-field appearance="legacy" class="reg-form-field">
+                                    <mat-label>Enrollment No</mat-label>
+                                    <input matInput placeholder="Enrollment No" formControlName="enrollmentNo">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-3" >
+                                <mat-form-field appearance="legacy" class="reg-form-field">
+                                    <mat-label>Center Code</mat-label>
+                                    <input matInput placeholder="Center Code" formControlName="centerCode">
+                                </mat-form-field>
                             </div>
                             <div class="col-md-3">
-                                <label>Center Code</label>
-                                <input type="text" class="form-control" formControlName="centerCode">
+                                <mat-form-field appearance="legacy" class="reg-form-field">
+                                    <mat-label>Session</mat-label>
+                                    <input matInput placeholder="Session" formControlName="session">
+                                </mat-form-field>
                             </div>
                             <div class="col-md-3">
-                                <label>Session</label>
-                                <input type="text" class="form-control" formControlName="session">
+                                <mat-form-field appearance="legacy" class="reg-form-field">
+                                    <mat-label>Phone Numbe</mat-label>
+                                    <input matInput placeholder="Phone Numbe" formControlName="phoneNumber">
+                                </mat-form-field>
                             </div>
                             <div class="col-md-3">
-                                <label>Phone Number</label>
-                                <input type="text" class="form-control" formControlName="phoneNumber">
-                            </div>
-                            <div class="col-md-3">
-                                <label>Email Id</label>
-                                <input type="email" class="form-control" formControlName="email">
+                                <mat-form-field appearance="legacy" class="reg-form-field">
+                                    <mat-label>Email Id</mat-label>
+                                    <input matInput placeholder="Email Id" formControlName="email">
+                                </mat-form-field>
                             </div>
                             <div class="col-md-3">
                                 <h5>Gender</h5>
                                 <div class="custom-control custom-radio">
-                                    <input id="male" type="radio" class="custom-control-input" name="gender" formControlName="gender" value="male"
+                                    <mat-radio-group aria-label="Select an option" formControlName="gender">
+                                        <mat-radio-button value="male">Male</mat-radio-button>
+                                        <mat-radio-button value="female">Female</mat-radio-button>
+                                      </mat-radio-group>
+                                    <!-- <input id="male" type="radio" class="custom-control-input" name="gender" formControlName="gender" value="male"
                                         checked>
-                                    <label class="custom-control-label" for="male">Male</label>
+                                    <label class="custom-control-label" for="male">Male</label> -->
                                 </div>
-                                <div class="custom-control custom-radio">
+                                <!-- <div class="custom-control custom-radio">
                                     <input id="female" type="radio" class="custom-control-input" name="gender" formControlName="gender" value="female">
                                     <label class="custom-control-label" for="female">Female</label>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-md-6">
                                 <!-- <div class="avtar-upload">
@@ -105,6 +140,40 @@
                                 </div> -->
                             </div>
                         </div>
+                    </div>
+                    <div class="subject-add">
+                        <h3>Add Your Subjects Here:</h3>
+                            <div class="add-lessons-form" >
+                                <ng-container formArrayName="lessons">
+                                    <ng-container *ngFor="let lessonForm of lessons.controls; let i = index">
+                                        <div class="lesson-form-row" [formGroup]="lessonForm">
+                                            <mat-form-field appearance="fill">
+                                                <input matInput
+                                                    formControlName="title"
+                                                    placeholder="Subject">
+                                            </mat-form-field>
+                                            <mat-form-field appearance="fill">
+                                                <input matInput
+                                                    formControlName="title"
+                                                    placeholder="Subject Code">
+                                                <!-- <mat-select formControlName="level"
+                                                        placeholder="Lesson level">
+                                                    <mat-option value="beginner">Beginner</mat-option>
+                                                    <mat-option value="intermediate">Intermediate</mat-option>
+                                                    <mat-option value="advanced">Advanced</mat-option>
+                                                </mat-select> -->
+                                            </mat-form-field>
+                                            <mat-icon class="delete-btn" (click)="deleteLesson(i)">
+                                                delete_forever</mat-icon>
+                                        </div>
+                                    </ng-container>
+                                </ng-container>
+                            
+                                <button mat-mini-fab (click)="addLesson()">
+                                    <mat-icon class="add-course-btn">add</mat-icon>
+                                </button>
+
+                            </div>
                     </div>
                     <!-- Submit Button -->
                     <div class="form-btn-block">

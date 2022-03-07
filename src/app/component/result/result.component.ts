@@ -17,6 +17,7 @@ export class ResultComponent implements OnInit {
   ) { }
   /*##################### Registration Form #####################*/
   registrationForm = this.fb.group({
+    lessons: this.fb.array([]),
     // file: [null],
     fullName: this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(2), Validators.pattern('^[_A-z0-9]*((-|\s)*[_A-z0-9])*$')]],
@@ -117,6 +118,21 @@ export class ResultComponent implements OnInit {
     } else {
       console.log(this.registrationForm.value)
     }
+  }
+  get lessons() {
+    return this.registrationForm.controls["lessons"] as FormArray;
+  }
+
+  addLesson() {
+    const lessonForm = this.fb.group({
+      title: ['', Validators.required],
+      level: ['beginner', Validators.required]
+    });
+    this.lessons.push(lessonForm);
+  }
+
+  deleteLesson(lessonIndex: number) {
+    this.lessons.removeAt(lessonIndex);
   }
   ngOnInit(): void {
   }
