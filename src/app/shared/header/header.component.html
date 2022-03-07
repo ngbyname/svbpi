@@ -1,38 +1,40 @@
-<mat-toolbar color="custom">
-  <div class="container">
-    <div class="row">
-        <div class="show-mobile">
-          <button mat-icon-button (click)="onToggleSidenav()">
-              <mat-icon>menu</mat-icon>
-          </button>
-        </div>
-        <div class="col-md-3">
-          <a routerLink="/home"><img src="assets/img/logonew.jpg" class="img-responsive logo"></a>
-        </div>
-        <div class="col-md-9">
-          <div class="hide-mobile">
-              <ul class="navigation-items">
-                <li><button mat-button routerLink="/home">Home</button></li>
-                <li><button mat-button routerLink="/about">About</button></li>
-                <li><button mat-button routerLink="/result">Result</button></li>
-                <li>
-                  <button mat-button [matMenuTriggerFor]="belowMenu">Courses</button>
-                  <mat-menu #belowMenu="matMenu" yPosition="below">
-                      <button mat-menu-item>Course 1</button>
-                      <button mat-menu-item>Course 2</button>
-                    </mat-menu>
-                </li>
-                <li><button mat-button routerLink="/contact">Contact</button></li>
-                  <li>
-                    <!-- <button mat-button [matMenuTriggerFor]="belowMenu">About</button> -->
-                    <!-- <mat-menu #belowMenu="matMenu" yPosition="below">
-                      <button mat-menu-item>Item 1</button>
-                      <button mat-menu-item>Item 2</button>
-                    </mat-menu> -->
-                  </li>
-              </ul>
+<mat-toolbar color="custom" class="custom-toolbar">  
+  <div class="top-hader">
+    <div class="container">
+      <div class="row">
+          <div class="show-mobile">
+            <button mat-icon-button (click)="onToggleSidenav()">
+                <mat-icon>menu</mat-icon>
+            </button>
           </div>
-        </div>
+          <div class="col-md-3">
+            <a routerLink="/home"><img src="assets/img/logonew.jpg" class="img-responsive logo"></a>
+          </div>
+          <div class="col-md-9">
+            <div class="hide-mobile">
+                <ul class="navigation-items">
+                  <li><button mat-button routerLink="/home">Home</button></li>
+                  <li><button mat-button routerLink="/about">About</button></li>
+                  <li><button mat-button routerLink="/result">Result</button></li>
+                  <li>
+                    <button mat-button [matMenuTriggerFor]="belowMenu">Courses</button>
+                    <mat-menu #belowMenu="matMenu" yPosition="below">
+                        <button mat-menu-item>Course 1</button>
+                        <button mat-menu-item>Course 2</button>
+                      </mat-menu>
+                  </li>
+                  <li><button mat-button routerLink="/contact">Contact</button></li>
+                    <li>
+                      <!-- <button mat-button [matMenuTriggerFor]="belowMenu">About</button> -->
+                      <!-- <mat-menu #belowMenu="matMenu" yPosition="below">
+                        <button mat-menu-item>Item 1</button>
+                        <button mat-menu-item>Item 2</button>
+                      </mat-menu> -->
+                    </li>
+                </ul>
+            </div>
+          </div>
+      </div>
     </div>
   </div>
 </mat-toolbar>
