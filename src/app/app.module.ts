@@ -11,6 +11,7 @@ import { AboutUsComponent } from './component/about-us/about-us.component';
 import {SharedModule} from './shared/shared.module';
 // import { MatSliderModule } from '@angular/material/slider';
 import {MaterialModule} from '../material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 // import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {MaterialModule} from '../material.module';
     BrowserAnimationsModule,
     SharedModule,
     MaterialModule,
+    ReactiveFormsModule
     // FlexLayoutModule
   ],
   providers: [],

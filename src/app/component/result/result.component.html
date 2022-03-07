@@ -1,1 +1,95 @@
-<p>result works!</p>
+<div class="result-form">
+    <div class="container">
+        <div class="row">
+            <div class="form-block">
+                <!-- Form starts -->
+                <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                    <div formGroupName="fullName">
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+                                <label>First name</label>
+                                <input type="text" class="form-control" formControlName="firstName">
+                            </div>
+                            <div class="col-md-6">
+                                <label>Last name</label>
+                                <input type="text" class="form-control" formControlName="lastName">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="parent-details" formGroupName="parentsDetails">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Father's name</label>
+                                <input type="text" class="form-control" formControlName="fatherName">
+                            </div>
+                            <div class="col-md-6">
+                                <label>Mother's name</label>
+                                <input type="text" class="form-control" formControlName="motherName">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="student-details">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Date Of Birth</label>
+                                <input type="date" class="form-control" formControlName="dob">
+                            </div>
+                            <div class="col-md-6">
+                                <label>Course Name</label>
+                                <input type="text" class="form-control" formControlName="courseName">
+                            </div>
+                            <div class="col-md-6">
+                                <label>Enrollment No</label>
+                                <input type="text" class="form-control" formControlName="enrollmentNo">
+                            </div>
+                            <div class="col-md-6">
+                                <label>Center Code</label>
+                                <input type="text" class="form-control" formControlName="centerCode">
+                            </div>
+                            <div class="col-md-6">
+                                <label>Session</label>
+                                <input type="text" class="form-control" formControlName="session">
+                            </div>
+                            <div class="col-md-6">
+                                <label>Phone Number</label>
+                                <input type="text" class="form-control" formControlName="phoneNumber">
+                            </div>
+                            <div class="col-md-6">
+                                <label>Email Id</label>
+                                <input type="email" class="form-control" formControlName="email">
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Gender</h5>
+                                <div class="custom-control custom-radio">
+                                    <input id="male" type="radio" class="custom-control-input" name="gender" formControlName="gender" value="male"
+                                        checked>
+                                    <label class="custom-control-label" for="male">Male</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input id="female" type="radio" class="custom-control-input" name="gender" formControlName="gender" value="female">
+                                    <label class="custom-control-label" for="female">Female</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <!-- <div class="avtar-upload">
+                                    <div class="avtar-edit">
+                                        <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput (change)="uploadFile($event)" />
+                                        <label for="imageUpload" *ngIf="editFile" [ngClass]="['custom-label', 'upload-image']"></label>
+                                        <label *ngIf="removeUpload" [ngClass]="['custom-label', 'remove-image']" (click)="removeUploadedFile()"></label>
+                                    </div>
+                                    <div class="avatar-preview">
+                                        <div id="imagePreview" [style.backgroundImage]="'url('+ imageUrl +')'"></div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Submit Button -->
+                    <div class="form-btn-block">
+                        <button type="submit" class="btn btn-danger btn-lg btn-block">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
