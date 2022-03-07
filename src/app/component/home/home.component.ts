@@ -8,9 +8,9 @@ import { MatCarousel, MatCarouselComponent } from '@ngmodule/material-carousel';
 export class HomeComponent implements OnInit {
 
   slides = [
-    {'image': 'assets/image/side-img.jpeg'},
-    {'image': 'assets/image/side-img.jpeg'},
-    {'image': 'assets/image/side-img.jpeg'}
+    {'image': 'assets/img/background1.jpeg'},
+    {'image': 'assets/img/background2.jpeg'},
+    {'image': 'assets/img/background3.jpeg'}
   ];
   constructor() { }
 
