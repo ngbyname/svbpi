@@ -4,61 +4,83 @@
             <div class="form-block">
                 <!-- Form starts -->
                 <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-                    <div formGroupName="fullName">
-                        <div class="row">
-                            <div class="col-md-6 col-xs-12">
-                                <label>First name</label>
-                                <input type="text" class="form-control" formControlName="firstName">
-                            </div>
-                            <div class="col-md-6">
-                                <label>Last name</label>
-                                <input type="text" class="form-control" formControlName="lastName">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div formGroupName="fullName">
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <mat-form-field appearance="legacy">
+                                            <mat-label>First Name</mat-label>
+                                            <input matInput placeholder="First Name" formControlName="firstName">
+                                        </mat-form-field>
+                                        <!-- <label>First name</label>
+                                        <input type="text" class="form-control" formControlName="firstName"> -->
+                                    </div>
+                                    <div class="col-md-6">
+                                        <mat-form-field appearance="legacy">
+                                            <mat-label>Last Name</mat-label>
+                                            <input matInput placeholder="Last Name" formControlName="lastName">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="parent-details" formGroupName="parentsDetails">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Father's name</label>
-                                <input type="text" class="form-control" formControlName="fatherName">
-                            </div>
-                            <div class="col-md-6">
-                                <label>Mother's name</label>
-                                <input type="text" class="form-control" formControlName="motherName">
+                        <div class="col md-6">
+                            <div class="parent-details" formGroupName="parentsDetails">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <mat-form-field appearance="legacy">
+                                            <mat-label>Father's name</mat-label>
+                                            <input matInput placeholder="Father's Name" formControlName="fatherName">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <mat-form-field appearance="legacy">
+                                            <mat-label>Mother's name</mat-label>
+                                            <input matInput placeholder="Mother's name" formControlName="motherName">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="student-details">
                         <div class="row">
-                            <div class="col-md-6">
-                                <label>Date Of Birth</label>
-                                <input type="date" class="form-control" formControlName="dob">
+                            <div class="col-md-3">
+                                <mat-form-field color="accent" appearance="fill">
+                                    <mat-label>Enter DOB</mat-label>
+                                    <input matInput [matDatepicker]="picker1" formControlName="dob">
+                                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker1></mat-datepicker>
+                                </mat-form-field>
+                                <!-- <label>Date Of Birth</label>
+                                <input type="date" class="form-control" formControlName="dob"> -->
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <label>Course Name</label>
                                 <input type="text" class="form-control" formControlName="courseName">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <label>Enrollment No</label>
                                 <input type="text" class="form-control" formControlName="enrollmentNo">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <label>Center Code</label>
                                 <input type="text" class="form-control" formControlName="centerCode">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <label>Session</label>
                                 <input type="text" class="form-control" formControlName="session">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <label>Phone Number</label>
                                 <input type="text" class="form-control" formControlName="phoneNumber">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <label>Email Id</label>
                                 <input type="email" class="form-control" formControlName="email">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <h5>Gender</h5>
                                 <div class="custom-control custom-radio">
                                     <input id="male" type="radio" class="custom-control-input" name="gender" formControlName="gender" value="male"
