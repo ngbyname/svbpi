@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.js --port 4200",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -30,6 +30,7 @@
     "datatables.net": "^1.11.5",
     "datatables.net-dt": "^1.11.5",
     "dropify": "^0.2.2",
+    "https-proxy-agent": "^5.0.0",
     "jquery": "^3.6.0",
     "rxjs": "~6.6.0",
     "sweetalert2": "^11.4.4",

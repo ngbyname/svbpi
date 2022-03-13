@@ -38,7 +38,7 @@ export class ResultComponent implements OnInit {
     dob: ['', [Validators.required]],
     courseName: ['', [Validators.required]],
     enrollmentNo: ['', [Validators.required]],
-    centerCode: ['', [Validators.required]],
+    centerCode: [{ value: '023', disabled: true }, [Validators.required]],
     session: ['', [Validators.required]],
     phoneNumber: ['', [Validators.required, Validators.maxLength(10), Validators.pattern('^[0-9]+$')]],
     // address: this.fb.group({
@@ -128,33 +128,29 @@ export class ResultComponent implements OnInit {
     } else {
       let reqData: any;
       const enrollConst: String = 'SVBPI/';
-      let currentMonth='03';
-      let count:number=10000;
-      let enrollNum:number;
-      var myFormData = new FormData();
-      myFormData.append('firstName', this.registrationForm.value.firstName);
-      myFormData.append('lastName', this.registrationForm.value.lastName);
-      myFormData.append('fatherName', this.registrationForm.value.fatherName);
-      myFormData.append('motherName', this.registrationForm.value.motherName);
-      this.registrationForm.value.dob = this.datePipe.transform(this.registrationForm.value.dob, 'yyyy-MM-dd');
-      myFormData.append('dob', this.registrationForm.value.dob);
-      myFormData.append('courseName', this.registrationForm.value.courseName);
-      myFormData.append('centerCode', this.registrationForm.value.centerCode);
-      myFormData.append('session', this.registrationForm.value.session);
-      myFormData.append('phoneNumber', this.registrationForm.value.phoneNumber);
-      myFormData.append('email', this.registrationForm.value.email);
-      myFormData.append('gender', this.registrationForm.value.gender);
+      let currentMonth = '03';
+      let enrollNum: any = ("" + Math.random()).substring(2, 8)
+      // var myFormData = new FormData();
+      // myFormData.append('firstName', this.registrationForm.value.firstName);
+      // myFormData.append('lastName', this.registrationForm.value.lastName);
+      // myFormData.append('fatherName', this.registrationForm.value.fatherName);
+      // myFormData.append('motherName', this.registrationForm.value.motherName);
+      // this.registrationForm.value.dob = this.datePipe.transform(this.registrationForm.value.dob, 'yyyy-MM-dd');
+      // myFormData.append('dob', this.registrationForm.value.dob);
+      // myFormData.append('courseName', this.registrationForm.value.courseName);
+      // myFormData.append('centerCode', this.registrationForm.value.centerCode);
+      // myFormData.append('session', this.registrationForm.value.session);
+      // myFormData.append('phoneNumber', this.registrationForm.value.phoneNumber);
+      // myFormData.append('email', this.registrationForm.value.email);
+      // myFormData.append('gender', this.registrationForm.value.gender);
       let creationDate: any = new Date();
       creationDate = this.datePipe.transform(creationDate, 'yyyy-MM-dd');
-      enrollNum = count;
-      enrollNum = enrollNum ++;
-      let enrollmentNo=enrollConst+currentMonth+'/'+enrollNum;
-      //myFormData.append(creationDate)
-      //Need to add for enrollmentNo
-      console.log(myFormData);
+      let enrollmentNo = enrollConst + currentMonth + '/' + enrollNum;
+      this.registrationForm.value.dob = this.datePipe.transform(this.registrationForm.value.dob, 'yyyy-MM-dd');
+      //console.log(myFormData);
       reqData =
       {
-        lessons: [],
+        lessons: this.registrationForm.value.lessons,
         fullName: {
           firstName: this.registrationForm.value.fullName.firstName,
           lastName: this.registrationForm.value.fullName.lastName
@@ -192,15 +188,16 @@ export class ResultComponent implements OnInit {
       //   })(jQuery);
 
       //Post Request
-      return this.http.post('http://localhost:8888/addUser.php', myFormData).subscribe((res: Response) => {
-        //sweetalert message popup
-        Swal.fire({
-          title: 'Hurray!!',
-          text: this.registrationForm.value.firstName + " has been added successfully",
-          icon: 'success'
+      return this.http.post('http://localhost:8888/addUser.php', reqData).subscribe((res: any) => {
+        if (res && res.data && res.data.statusCode == 200) {
+          Swal.fire({
+            title: 'Hurray!!',
+            text: this.registrationForm.value.fullName.firstName + " has been added successfully",
+            icon: 'success'
+          }
+          );
         }
-
-        );
+        //sweetalert message popup
       }
 
       );
@@ -212,8 +209,8 @@ export class ResultComponent implements OnInit {
 
   addLesson() {
     const lessonForm = this.fb.group({
-      title: ['', Validators.required],
-      level: ['', Validators.required]
+      subCode: ['', Validators.required],
+      subName: ['', Validators.required]
     });
     this.lessons.push(lessonForm);
   }
