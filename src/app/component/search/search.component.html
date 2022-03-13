@@ -1,0 +1,61 @@
+<div class="event-background-blue margin-20-top">
+    <div class="container">
+      <!-- Search -->
+      <div class="row">
+        <div class="col-12">
+          <form ngNoForm class="form-inline">
+            <div class="row">
+              <div class="col">
+                <input #search id="search" name="search" class="form-control form-control-lg" type="text" />
+              </div>
+  
+              <div class="col">
+                <div class="input-group date datepicker" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-week-start="1" data-date-language="fr">
+                  <input placeholder="Du" type="text" class="form-control form-control-lg" #from name="from" autocomplete="off" >
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col">
+                <div class="input-group date datepicker" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-week-start="1" data-date-language="fr">
+                  <input placeholder="Au" type="text" class="form-control form-control-lg" #to name="to" autocomplete="off" >
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col">
+                <button (click)="onSubmit(search.value, from.value, to.value);" class="btn btn-black" type="submit"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-search-bar></app-search-bar>
+
+<div class="container">
+  <!-- Header -->
+  <div class="row">
+    <div class="col-12">
+      <h1 class="title-search text-primary">Search</h1>
+    </div>
+  </div>
+
+  <!-- Count of Events -->
+  <div class="row">
+    <div class="col-12 margin-20-bottom">
+      <h3>Events</h3>
+    </div>
+
+    <app-event class="col-12 col-md-6 col-lg-4 mb-10" *ngFor="let event of events" [event]="event"></app-event>
+
+    <div class="col-12" *ngIf="!events">
+      <p>No event, go to <a routerLink="/evenements">events !</a></p>
+    </div>
+  </div>
+</div>

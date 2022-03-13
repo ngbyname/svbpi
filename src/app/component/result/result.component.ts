@@ -1,6 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit,ChangeDetectorRef, ElementRef, ViewChild } from '@angular/core';
-import { FormBuilder, FormArray, Validators } from "@angular/forms";
-import { ValidatePassword } from './../validate-password';
+import { FormBuilder, FormArray, Validators, FormGroup } from "@angular/forms";
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',
@@ -13,7 +14,9 @@ export class ResultComponent implements OnInit {
   // City: any = ['Florida', 'South Dakota', 'Tennessee', 'Michigan']
   constructor(
     public fb: FormBuilder,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private http:HttpClient,
+    private formBuilder:FormBuilder
   ) { }
   /*##################### Registration Form #####################*/
   registrationForm = this.fb.group({
@@ -108,6 +111,10 @@ export class ResultComponent implements OnInit {
   //   this.addDynamicElement.push(this.fb.control(''))
   // }
 
+  //Add user form actions
+get f() { return this.registrationForm.controls; }
+
+
   // Submit Registration Form
   onSubmit() {
     this.submitted = true;
@@ -117,6 +124,33 @@ export class ResultComponent implements OnInit {
       return false;
     } else {
       console.log(this.registrationForm.value)
+      var myFormData = new FormData();
+      myFormData.append('firstName', this.registrationForm.value.firstName);
+      myFormData.append('lastName', this.registrationForm.value.lastName);
+      myFormData.append('fatherName', this.registrationForm.value.fatherName);
+      myFormData.append('motherName', this.registrationForm.value.motherName);
+      myFormData.append('dob', this.registrationForm.value.dob);
+      myFormData.append('courseName', this.registrationForm.value.courseName);
+      myFormData.append('centerCode', this.registrationForm.value.centerCode);
+      myFormData.append('session', this.registrationForm.value.session);
+      myFormData.append('phoneNumber', this.registrationForm.value.phoneNumber);
+      myFormData.append('email', this.registrationForm.value.email);
+      myFormData.append('gender', this.registrationForm.value.gender);
+      //Need to add for enrollmentNo
+
+      //Post Request
+      return this.http.post('http://localhost:8888/addUser.php',myFormData).subscribe((res:Response) =>{
+        //sweetalert message popup
+        Swal.fire({
+          title:'Hurray!!',
+          text:this.registrationForm.value.firstName+" has been added successfully",
+          icon:'success'
+        }
+
+        );
+      }
+
+      );
     }
   }
   get lessons() {
@@ -126,7 +160,7 @@ export class ResultComponent implements OnInit {
   addLesson() {
     const lessonForm = this.fb.group({
       title: ['', Validators.required],
-      level: ['beginner', Validators.required]
+      level: ['', Validators.required]
     });
     this.lessons.push(lessonForm);
   }
