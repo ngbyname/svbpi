@@ -1,14 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ChangeDetectorRef, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit,ChangeDetectorRef, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormArray, Validators, FormGroup } from "@angular/forms";
 import Swal from 'sweetalert2';
-import { formatDate } from '@angular/common';
-import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',
-  styleUrls: ['./result.component.scss'],
-  providers: [DatePipe]
+  styleUrls: ['./result.component.scss']
 })
 export class ResultComponent implements OnInit {
   submitted = false;
@@ -18,9 +15,8 @@ export class ResultComponent implements OnInit {
   constructor(
     public fb: FormBuilder,
     private cd: ChangeDetectorRef,
-    private http: HttpClient,
-    private formBuilder: FormBuilder,
-    private datePipe: DatePipe
+    private http:HttpClient,
+    private formBuilder:FormBuilder
   ) { }
   /*##################### Registration Form #####################*/
   registrationForm = this.fb.group({
@@ -55,7 +51,7 @@ export class ResultComponent implements OnInit {
     // }
     // ),
     // addDynamicElement: this.fb.array([])
-  })
+  })  
 
   /*########################## File Upload ########################*/
   @ViewChild('fileInput') el: ElementRef;
@@ -79,7 +75,7 @@ export class ResultComponent implements OnInit {
         this.removeUpload = true;
       }
       // ChangeDetectorRef since file is loading outside the zone
-      this.cd.markForCheck();
+      this.cd.markForCheck();        
     }
   }
 
@@ -92,13 +88,13 @@ export class ResultComponent implements OnInit {
     this.registrationForm.patchValue({
       file: [null]
     });
-  }
-
+  }  
+ 
   // Getter method to access formcontrols
   // get myForm() {
   //   return this.registrationForm.controls;
   // }
-
+  
   // Choose city using select dropdown
   // changeCity(e) {
   //   this.registrationForm.get('address.cityName').setValue(e.target.value, {
@@ -116,27 +112,23 @@ export class ResultComponent implements OnInit {
   // }
 
   //Add user form actions
-  get sendDataToServer() { return this.registrationForm.controls; }
+get f() { return this.registrationForm.controls; }
 
 
   // Submit Registration Form
   onSubmit() {
     this.submitted = true;
-    if (this.registrationForm.valid) {
+    console.log(this.registrationForm.value)
+    if(!this.registrationForm.valid) {
       alert('Please fill all the required fields to create a super hero!')
       return false;
     } else {
-      let reqData: any;
-      const enrollConst: String = 'SVBPI/';
-      let currentMonth='03';
-      let count:number=10000;
-      let enrollNum:number;
+      console.log(this.registrationForm.value)
       var myFormData = new FormData();
       myFormData.append('firstName', this.registrationForm.value.firstName);
       myFormData.append('lastName', this.registrationForm.value.lastName);
       myFormData.append('fatherName', this.registrationForm.value.fatherName);
       myFormData.append('motherName', this.registrationForm.value.motherName);
-      this.registrationForm.value.dob = this.datePipe.transform(this.registrationForm.value.dob, 'yyyy-MM-dd');
       myFormData.append('dob', this.registrationForm.value.dob);
       myFormData.append('courseName', this.registrationForm.value.courseName);
       myFormData.append('centerCode', this.registrationForm.value.centerCode);
@@ -144,60 +136,15 @@ export class ResultComponent implements OnInit {
       myFormData.append('phoneNumber', this.registrationForm.value.phoneNumber);
       myFormData.append('email', this.registrationForm.value.email);
       myFormData.append('gender', this.registrationForm.value.gender);
-      let creationDate: any = new Date();
-      creationDate = this.datePipe.transform(creationDate, 'yyyy-MM-dd');
-      enrollNum = count;
-      enrollNum = enrollNum ++;
-      let enrollmentNo=enrollConst+currentMonth+'/'+enrollNum;
-      //myFormData.append(creationDate)
       //Need to add for enrollmentNo
-      console.log(myFormData);
-      reqData =
-      {
-        lessons: [],
-        fullName: {
-          firstName: this.registrationForm.value.fullName.firstName,
-          lastName: this.registrationForm.value.fullName.lastName
-        },
-        parentsDetails: {
-          fatherName: this.registrationForm.value.parentsDetails.fatherName,
-          motherName: this.registrationForm.value.parentsDetails.motherName
-        },
-        email: this.registrationForm.value.email,
-        dob: this.registrationForm.value.dob,
-        courseName: this.registrationForm.value.courseName,
-        enrollmentNo: enrollmentNo,
-        centerCode: this.registrationForm.value.centerCode,
-        session: this.registrationForm.value.session,
-        phoneNumber: this.registrationForm.value.phoneNumber,
-        gender: this.registrationForm.value.gender,
-        creationDate: creationDate
-      }
-      console.log(reqData);
-      // (function($) {
-      //   var url = 'http://localhost:80/web-app/app/api/post-json-obj';
-      //   var data = myFormData;
-      //   $.ajax({
-      //   type: 'POST',
-      //   url: url,
-      //   data: JSON.stringify(data),
-      //   contentType:"application/json",
-      //   success: function(response) {
-      //   alert("success");
-      //   },
-      //   error: function(xhr) {
-      //   alert('Error!  Status = ' + xhr.status + " Message = " + xhr.statusText);
-      //   }
-      //   });
-      //   })(jQuery);
 
       //Post Request
-      return this.http.post('http://localhost:8888/addUser.php', myFormData).subscribe((res: Response) => {
+      return this.http.post('http://localhost:8888/addUser.php',myFormData).subscribe((res:Response) =>{
         //sweetalert message popup
         Swal.fire({
-          title: 'Hurray!!',
-          text: this.registrationForm.value.firstName + " has been added successfully",
-          icon: 'success'
+          title:'Hurray!!',
+          text:this.registrationForm.value.firstName+" has been added successfully",
+          icon:'success'
         }
 
         );
