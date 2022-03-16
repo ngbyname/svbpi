@@ -12,9 +12,11 @@ import { SharedModule } from './shared/shared.module';
 // import { MatSliderModule } from '@angular/material/slider';
 import { MaterialModule } from '../material.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdmitcardComponent } from './component/admitcard/admitcard.component';
 import { SearchComponent } from './component/search/search.component';
+import {ErrorCatchingInterceptor} from './core/interceptors/error-catching.interceptor';
+import { ApiInterceptor } from './core/interceptors/api-interceptor';
 // import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
@@ -37,7 +39,13 @@ import { SearchComponent } from './component/search/search.component';
     HttpClientModule
     // FlexLayoutModule
   ],
-  providers: [],
+  providers: [
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: ApiInterceptor,
+    //   multi: true
+    // }
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -7,6 +7,7 @@ import { HomeComponent } from './component/home/home.component';
 import { ResultComponent } from './component/result/result.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  // { path: '**', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutUsComponent },
   { path: 'contact', component: ContactComponent },

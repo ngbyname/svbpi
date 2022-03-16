@@ -4,6 +4,8 @@ import { FormBuilder, FormArray, Validators, FormGroup } from "@angular/forms";
 import Swal from 'sweetalert2';
 import { formatDate } from '@angular/common';
 import { DatePipe } from '@angular/common';
+import { ApiService } from 'src/app/core/api-service';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',
@@ -20,7 +22,9 @@ export class ResultComponent implements OnInit {
     private cd: ChangeDetectorRef,
     private http: HttpClient,
     private formBuilder: FormBuilder,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private apiService:ApiService,
+    private uiLoaderService:NgxUiLoaderService
   ) { }
   /*##################### Registration Form #####################*/
   registrationForm = this.fb.group({
@@ -188,20 +192,49 @@ export class ResultComponent implements OnInit {
       //   })(jQuery);
 
       //Post Request
-      return this.http.post('http://localhost:8888/addUser.php', reqData).subscribe((res: any) => {
-        if (res && res.data && res.data.statusCode == 200) {
-          Swal.fire({
-            title: 'Hurray!!',
-            text: this.registrationForm.value.fullName.firstName + " has been added successfully",
-            icon: 'success'
-          }
-          );
-        }
-        //sweetalert message popup
-      }
+      this.insertPersonalDetails(reqData);
+      // return this.http.post('http://localhost:8888/addUser.php', reqData).subscribe((res: any) => {
+      //   if (res && res.data && res.data.statusCode == 200) {
+      //     Swal.fire({
+      //       title: 'Hurray!!',
+      //       text: this.registrationForm.value.fullName.firstName + " has been added successfully",
+      //       icon: 'success'
+      //     }
+      //     );
+      //   }
+      //   //sweetalert message popup
+      // }
 
+      // );
+    }
+  }
+  public insertPersonalDetails(reqData){
+    this.uiLoaderService.start();
+    let postData:any={
+      url:'/addUser.php',
+      data:reqData
+    }
+    this.apiService.postApiData(postData).subscribe((res:any)=>{
+      this.uiLoaderService.stop();
+      if (res && res.data && res.data.statusCode == 200) {
+        Swal.fire({
+          title: 'Hurray!!',
+          text: this.registrationForm.value.fullName.firstName + " has been added successfully",
+          icon: 'success'
+        }
+        );
+      }
+    },
+    (error)=>{
+      Swal.fire({
+        title: 'Hurray!!',
+        text: error,
+        icon: 'success'
+      }
       );
     }
+    );
+    
   }
   get lessons() {
     return this.registrationForm.controls["lessons"] as FormArray;

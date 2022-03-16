@@ -11,7 +11,7 @@ const HttpsProxyAgent = require('https-proxy-agent');
 const proxyConfig = [
   {
     context: '/addUser',
-    target: 'http://localhost:8888',
+    target: 'http://svbpi.co.in/api',
     secure: false,
     changeOrigin: true
   },
