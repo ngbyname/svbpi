@@ -134,24 +134,10 @@ export class ResultComponent implements OnInit {
       const enrollConst: String = 'SVBPI/';
       let currentMonth = '03';
       let enrollNum: any = ("" + Math.random()).substring(2, 8)
-      // var myFormData = new FormData();
-      // myFormData.append('firstName', this.registrationForm.value.firstName);
-      // myFormData.append('lastName', this.registrationForm.value.lastName);
-      // myFormData.append('fatherName', this.registrationForm.value.fatherName);
-      // myFormData.append('motherName', this.registrationForm.value.motherName);
-      // this.registrationForm.value.dob = this.datePipe.transform(this.registrationForm.value.dob, 'yyyy-MM-dd');
-      // myFormData.append('dob', this.registrationForm.value.dob);
-      // myFormData.append('courseName', this.registrationForm.value.courseName);
-      // myFormData.append('centerCode', this.registrationForm.value.centerCode);
-      // myFormData.append('session', this.registrationForm.value.session);
-      // myFormData.append('phoneNumber', this.registrationForm.value.phoneNumber);
-      // myFormData.append('email', this.registrationForm.value.email);
-      // myFormData.append('gender', this.registrationForm.value.gender);
       let creationDate: any = new Date();
       creationDate = this.datePipe.transform(creationDate, 'yyyy-MM-dd');
       let enrollmentNo = enrollConst + currentMonth + '/' + enrollNum;
       this.registrationForm.value.dob = this.datePipe.transform(this.registrationForm.value.dob, 'yyyy-MM-dd');
-      //console.log(myFormData);
       reqData =
       {
         lessons: this.registrationForm.value.lessons,
@@ -173,41 +159,14 @@ export class ResultComponent implements OnInit {
         gender: this.registrationForm.value.gender,
         creationDate: creationDate
       }
-      console.log(reqData);
-      // (function($) {
-      //   var url = 'http://localhost:80/web-app/app/api/post-json-obj';
-      //   var data = myFormData;
-      //   $.ajax({
-      //   type: 'POST',
-      //   url: url,
-      //   data: JSON.stringify(data),
-      //   contentType:"application/json",
-      //   success: function(response) {
-      //   alert("success");
-      //   },
-      //   error: function(xhr) {
-      //   alert('Error!  Status = ' + xhr.status + " Message = " + xhr.statusText);
-      //   }
-      //   });
-      //   })(jQuery);
-
       //Post Request
       this.insertPersonalDetails(reqData);
-      // return this.http.post('http://localhost:8888/addUser.php', reqData).subscribe((res: any) => {
-      //   if (res && res.data && res.data.statusCode == 200) {
-      //     Swal.fire({
-      //       title: 'Hurray!!',
-      //       text: this.registrationForm.value.fullName.firstName + " has been added successfully",
-      //       icon: 'success'
-      //     }
-      //     );
-      //   }
-      //   //sweetalert message popup
-      // }
-
-      // );
     }
   }
+  /**
+   * 
+   * @param reqData 
+   */
   public insertPersonalDetails(reqData){
     this.uiLoaderService.start();
     let postData:any={
@@ -219,7 +178,7 @@ export class ResultComponent implements OnInit {
       if (res && res.data && res.data.statusCode == 200) {
         Swal.fire({
           title: 'Hurray!!',
-          text: this.registrationForm.value.fullName.firstName + " has been added successfully",
+          text: res.data.msg?res.data.msg:'',
           icon: 'success'
         }
         );
@@ -227,9 +186,9 @@ export class ResultComponent implements OnInit {
     },
     (error)=>{
       Swal.fire({
-        title: 'Hurray!!',
+        title: 'Aah!!',
         text: error,
-        icon: 'success'
+        icon: 'error'
       }
       );
     }
