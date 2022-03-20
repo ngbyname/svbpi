@@ -1,61 +1,23 @@
-<table class="table table-hover table-bordered">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Email</th>
-      <th>Username</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
- 
-     
-        <tr *ngFor="let group of data">
-          <td>{{group.id}}</td>
-          <td>{{group.email}}</td>
-          <td>{{group.username}}</td>
- 
-          <td>
-            <button class="bg-info" (click)="openuser(group.id)"> <i class="fas fa-eye"></i> </button>
-            <button class="bg-warning"> <i class="fas fa-edit"></i> </button>
-            <button class="bg-danger"> <i class="fas fa-trash"></i> </button>
-          </td>
-        </tr>
-     
-   
-   
-    
-  </tbody>
-</table>
-
-<div class="modal" id="myModal" *ngIf="showuser">
-  <div class="modal-dialog">
-    <div class="modal-content">
-    
-      <div class="modal-header">
-        <h4 class="modal-title align-center">User : {{userdata.username}}</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+<section class="page-header" style="background: url('assets/img/siteName.png');">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
       </div>
-      
-      <div class="modal-body text-center">
-      <table class="table table-hover table-bordered">
-<thead>
-  <tr>
-    <th>ID</th>
-    <th>Email</th>
-    <th>Username</th>
-    
-  </tr>
-</thead>
-<tbody>
-    
-  <!-- User Dynamic data-->     
-  <tr>
-  <td>{{userdata.id}}</td>
-  <td>{{userdata.email}}</td>
-  <td>{{userdata.username}}</td>
-  </tr>
+    </div>
+  </div>
+</section>
 
+<body>
+  <form role="search" id="form">
+    <div class="wrapper">
+      <div class="search_box">
+        <div class="search_btn">
+          <button (click)="onSubmit()" class="btn btn-black" type="submit"><i class="fas fa-search">Submit</i></button>
+        </div>
+        <input class="input_search" id="input_search" type="text" placeholder="Search Enrolment no. here .."
+          autocomplete="off" autofocus title="search">
+      </div>
+    </div>
 
-</tbody>
-</table></div></div></div></div>
+  </form>
+</body>

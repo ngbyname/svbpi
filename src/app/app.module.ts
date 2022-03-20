@@ -17,6 +17,7 @@ import { AdmitcardComponent } from './component/admitcard/admitcard.component';
 import { SearchComponent } from './component/search/search.component';
 import {ErrorCatchingInterceptor} from './core/interceptors/error-catching.interceptor';
 import { ApiInterceptor } from './core/interceptors/api-interceptor';
+import { CoursesComponent } from './component/courses/courses.component';
 // import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ApiInterceptor } from './core/interceptors/api-interceptor';
     ResultComponent,
     AboutUsComponent,
     AdmitcardComponent,
-    SearchComponent
+    SearchComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule,

@@ -6,8 +6,9 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { ReactiveFormsModule } from '@angular/forms';
 import{ResultComponent} from './result/result.component';
 import { AdmitcardComponent } from './admitcard/admitcard.component';
+import { CoursesComponent } from './courses/courses.component';
 @NgModule({
-  declarations: [ComponentComponent,HomeComponent,ResultComponent,AdmitcardComponent],
+  declarations: [ComponentComponent,HomeComponent,ResultComponent,AdmitcardComponent,CoursesComponent],
   imports: [
     CommonModule,
     MatCarouselModule.forRoot(),
