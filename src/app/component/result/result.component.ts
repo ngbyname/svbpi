@@ -114,7 +114,7 @@ export class ResultComponent implements OnInit {
     } else {
       let reqData: any;
       const enrollConst: String = 'SVBPI/';
-      let currentMonth = '03';
+      let currentMonth = (new Date().getMonth() + 1).toString() 
       let enrollNum: any = ("" + Math.random()).substring(2, 8)
       let rollNo: any = ("" + Math.random()).substring(2, 9)
       let creationDate: any = new Date();
