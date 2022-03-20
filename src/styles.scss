@@ -52,6 +52,25 @@ mat-toolbar{
 @media(max-width: 959px){
   mat-toolbar{
       border-radius: 0px;
+      padding: 0px !important;
+  }
+  img{
+    max-width: 100%;
+  }
+  .fs-16{
+    font-size: 13px !important;
+  }
+  .banner-home{
+    height: 300px !important;
+    background-position: center !important;
+  }
+  .content{
+    text-align: center;
+    ul{
+      li{
+        margin-right: 45px !important;
+      }
+    }
   }
 }
 a{
