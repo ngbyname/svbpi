@@ -14,9 +14,6 @@ import {NgxUiLoaderService} from 'ngx-ui-loader';
 })
 export class ResultComponent implements OnInit {
   submitted = false;
-  // registrationForm:FormGroup
-  // City names
-  // City: any = ['Florida', 'South Dakota', 'Tennessee', 'Michigan']
   constructor(
     public fb: FormBuilder,
     private cd: ChangeDetectorRef,
