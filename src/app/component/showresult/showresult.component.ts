@@ -10,6 +10,9 @@ declare let $: any;
 })
 export class ShowResultComponent implements OnInit {
   data: any;
+  totalMax: number=0;
+  totalObtain: number=0;
+  pass: string;
   constructor(
     public fb: FormBuilder,
     private apiService: ApiService,
@@ -44,7 +47,7 @@ export class ShowResultComponent implements OnInit {
       this.uiLoaderService.stop();
       if (res && res.body && res.body.statusCode === 200) {
         if (res.body.result) {
-          this.getSubject(enrollNumber, res.body.result);
+          this.getResult(enrollNumber, res.body.result);
         }
       }
     },
@@ -57,37 +60,7 @@ export class ShowResultComponent implements OnInit {
    * 
    * @param enrollNumber 
    */
-  public getSubject(enrollNumber, userDetials) {
-    this.uiLoaderService.start();
-    let postData: any = {
-      url: '/getSubjects.php',
-      params: {
-        enrollmentNo: enrollNumber && enrollNumber.enrollNumValue ? enrollNumber.enrollNumValue : ''
-      }
-    }
-    this.apiService.getApiData(postData).subscribe((res: any) => {
-      this.uiLoaderService.stop();
-      if (res && res.body && res.body.statusCode === 200) {
-        if (res.body.result && res.body.result.length > 0) {
-          this.data = {
-            userData: userDetials,
-            subjectDeatils: res.body.result
-          }
-        }
-        console.log(this.data);
-      }
-    },
-      (error) => {
-
-      }
-    );
-  }
-
-  /**
-   * 
-   * @param enrollNumber 
-   */
-  public getResult(enrollNumber) {
+  public getResult(enrollNumber:any, userDetials:any) {
     this.uiLoaderService.start();
     let postData: any = {
       url: '/getResult.php',
@@ -100,14 +73,32 @@ export class ShowResultComponent implements OnInit {
       if (res && res.body && res.body.statusCode === 200) {
         if (res.body.result && res.body.result.length > 0) {
           this.data = {
-            resultDetails: res.body.result
+            userData: userDetials,
+            results: res.body.result
           }
+          this.calcTotal(res.body.result);
         }
-        console.log(this.data);
+        // console.log(this.data);
       }
-    }, (error) => {
+    },
+      (error) => {
 
-    }
+      }
     );
+  }
+  public calcTotal(resultData){
+    resultData.forEach(result => {
+      result.maxNo = Number(result.maxNo);
+      result.totalNo = Number(result.totalNo)
+      this.totalMax += result.maxNo;
+      this.totalObtain += result.totalNo;
+      if(result.resultStatus.toLowerCase() ==='p'){
+        this.pass="Pass"
+      }
+      else{
+        this.pass = "Fail";
+      }
+    });
+    console.log(this.totalMax,"sdafsd",this.totalObtain)
   }
 }

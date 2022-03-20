@@ -79,7 +79,7 @@
             <div class="responsive-table">
               <table class="st-subjects">
                 <tr>
-                  <th style="width: 22%;">S.No</th>
+                  <th>S.No</th>
                   <th>Subjects</th>
                   <th>Subjects Code</th>
                   <th>Maximum</th>
@@ -88,14 +88,21 @@
                   <th>Total</th>
                   <th>Result</th>
                 </tr>
-                <tr *ngFor="let subject of data.subjectDeatils;let i = index">
+                <tr *ngFor="let result of data.results;let i = index">
                   <td>{{i+1}}</td>
-                  <td>{{subject.subject}}</td>
-                  <td>{{subject.subjectCode}}</td>
+                  <td>{{result.subject}}</td>
+                  <td>{{result.subjectCode}}</td>
+                  <td>{{result.maxNo}}</td>
+                  <td>{{result.theoryNo}}</td>
+                  <td>{{result.practicalNo}}</td>
+                  <td>{{result.totalNo}}</td>
+                  <td>{{result.resultStatus==='P'?'Pass':'Fail'}}</td>
                 </tr>
-                <tr>
-                  <th>Name of Institute/Center</th>
-                  <td colspan="2" style="border-top:1px solid #000">Sardar VallabhBhai Patel Institute of Technology & Management</td>
+                <tr style="border-top: 1px solid #000;">
+                  <th colspan="3">Total Marks</th>
+                  <td colspan="3" style="text-align: left;">{{totalMax}}</td>
+                  <td>{{totalObtain}}</td>
+                  <td>{{pass}}</td>
                 </tr>
               </table>
             </div>
