@@ -1,68 +1,53 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { ApiService } from "src/app/core/api-service";
+import { FormGroup, FormControl ,FormBuilder,Validators} from '@angular/forms';
 declare let $: any;
 @Component({
   selector: 'app-admitcard',
   templateUrl: './admitcard.component.html',
   styleUrls: ['./admitcard.component.scss']
 })
-export class AdmitcardComponent {
-  //For modal popup hiding first time
-  showuser = false;
-  http: any;
-  userdata: any;
-  data: any;
-  private uiLoaderService: NgxUiLoaderService;
-  private apiService:ApiService
-  openuser(id: string | Blob) {
-    // Initialize Params Object
-    var myFormData = new FormData();
-    //removing modal hiding
-    this.showuser = true;
-    // Begin assigning parameters
-
-    myFormData.append('userid', id);
-
-    //user details post request
-    return this.http.post('http://localhost:8888/admitCard.php/'
-      , myFormData).subscribe((res: Response) => {
-        this.userdata = res[0];
-
-        $("#myModal").modal("show");
-
-      });
+export class AdmitcardComponent implements OnInit {
+  constructor(
+    public fb: FormBuilder,
+    private apiService: ApiService,
+    private uiLoaderService: NgxUiLoaderService
+  ) { }
+  ngOnInit(): void {
   }
-  onSubmit() {
-    let input: any;
-    input = (<HTMLInputElement>document.getElementById("input_search")).value;
-    console.log(input);
-    //GET Request
-    // this.fetchAdmitCard(input);
-
-  }
-
+  enrollSearch =this.fb.group({
+    enrollNumValue:['',[Validators.required]]
+  });
   /**
-  * 
-  * @param input 
-  */
-  // public fetchAdmitCard(input) {
-  //   this.uiLoaderService.start();
-  //   let getData: any{
-  //     url:'/admitCard.php',
-  //     data: input
-  //   }
-  //   this.apiService.getApiData(input).subscribe(res:any)=>{
-  //     this.uiLoaderService.stop();
-  //     if (res && res.data && res.data.statusCode == 200) {
-  //       Swal.fire({
-  //         title: 'Hurray!!',
-  //         text: res.data.msg?res.data.msg:'',
-  //         icon: 'success'
-  //       }
-  //       );
-  //     }
-  //   }
+   * 
+   */
+  onSubmit(){
+    console.log(this.enrollSearch.value);
+    this.getAdmitCard(this.enrollSearch.value);
+  }
+  /**
+   * 
+   * @param enrollNumber 
+   */
+   public getAdmitCard(enrollNumber:any) {
+    this.uiLoaderService.start();
+    let postData: any = {
+      url: '/getResult.php',
+      params:{
+        enrollmentNo:enrollNumber && enrollNumber.enrollNumValue?enrollNumber.enrollNumValue:''
+      } 
+    }
+    this.apiService.getApiData(postData).subscribe((res: any) => {
+      this.uiLoaderService.stop();
+      if (res && res.data && res.data.statusCode == 200) {
+       
+      }
+    },
+      (error) => {
+        
+      }
+    );
 
-  // }
+  }
 }

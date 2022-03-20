@@ -15,6 +15,18 @@ const proxyConfig = [
     secure: false,
     changeOrigin: true
   },
+  {
+    context: '/getResult',
+    target: 'http://svbpi.co.in/api',
+    secure: false,
+    changeOrigin: true
+  },
+  {
+    context: '/getSubjects',
+    target: 'http://svbpi.co.in/api',
+    secure: false,
+    changeOrigin: true
+  }
 ];
 /*
  * Configures a corporate proxy agent for the API proxy if needed.
