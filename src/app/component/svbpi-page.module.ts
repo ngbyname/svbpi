@@ -7,12 +7,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import{ResultComponent} from './result/result.component';
 import { AdmitcardComponent } from './admitcard/admitcard.component';
 import { CoursesComponent } from './courses/courses.component';
+import {NgxPrintModule} from 'ngx-print';
 @NgModule({
   declarations: [ComponentComponent,HomeComponent,ResultComponent,AdmitcardComponent,CoursesComponent],
   imports: [
     CommonModule,
     MatCarouselModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPrintModule
   ],
   exports:[
 
