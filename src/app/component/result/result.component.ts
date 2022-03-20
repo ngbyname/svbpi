@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import { formatDate } from '@angular/common';
 import { DatePipe } from '@angular/common';
 import { ApiService } from 'src/app/core/api-service';
-import {NgxUiLoaderService} from 'ngx-ui-loader';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',
@@ -20,8 +20,8 @@ export class ResultComponent implements OnInit {
     private http: HttpClient,
     private formBuilder: FormBuilder,
     private datePipe: DatePipe,
-    private apiService:ApiService,
-    private uiLoaderService:NgxUiLoaderService
+    private apiService: ApiService,
+    private uiLoaderService: NgxUiLoaderService
   ) { }
   /*##################### Registration Form #####################*/
   registrationForm = this.fb.group({
@@ -131,6 +131,7 @@ export class ResultComponent implements OnInit {
       const enrollConst: String = 'SVBPI/';
       let currentMonth = '03';
       let enrollNum: any = ("" + Math.random()).substring(2, 8)
+      let rollNo: any = ("" + Math.random()).substring(2, 9)
       let creationDate: any = new Date();
       creationDate = this.datePipe.transform(creationDate, 'yyyy-MM-dd');
       let enrollmentNo = enrollConst + currentMonth + '/' + enrollNum;
@@ -154,7 +155,8 @@ export class ResultComponent implements OnInit {
         session: this.registrationForm.value.session,
         phoneNumber: this.registrationForm.value.phoneNumber,
         gender: this.registrationForm.value.gender,
-        creationDate: creationDate
+        creationDate: creationDate,
+        rollNo: rollNo,
       }
       //Post Request
       this.insertPersonalDetails(reqData);
@@ -164,33 +166,33 @@ export class ResultComponent implements OnInit {
    * 
    * @param reqData 
    */
-  public insertPersonalDetails(reqData){
+  public insertPersonalDetails(reqData) {
     this.uiLoaderService.start();
-    let postData:any={
-      url:'/addUser.php',
-      data:reqData
+    let postData: any = {
+      url: '/addUser.php',
+      data: reqData
     }
-    this.apiService.postApiData(postData).subscribe((res:any)=>{
+    this.apiService.postApiData(postData).subscribe((res: any) => {
       this.uiLoaderService.stop();
       if (res && res.data && res.data.statusCode == 200) {
         Swal.fire({
           title: 'Hurray!!',
-          text: res.data.msg?res.data.msg:'',
+          text: res.data.msg ? res.data.msg : '',
           icon: 'success'
         }
         );
       }
     },
-    (error)=>{
-      Swal.fire({
-        title: 'Aah!!',
-        text: error,
-        icon: 'error'
+      (error) => {
+        Swal.fire({
+          title: 'Aah!!',
+          text: error,
+          icon: 'error'
+        }
+        );
       }
-      );
-    }
     );
-    
+
   }
   get lessons() {
     return this.registrationForm.controls["lessons"] as FormArray;

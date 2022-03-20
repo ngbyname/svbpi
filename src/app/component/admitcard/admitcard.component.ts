@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { ApiService } from "src/app/core/api-service";
 declare let $: any;
 @Component({
   selector: 'app-admitcard',
@@ -11,6 +13,8 @@ export class AdmitcardComponent {
   http: any;
   userdata: any;
   data: any;
+  private uiLoaderService: NgxUiLoaderService;
+  private apiService:ApiService
   openuser(id: string | Blob) {
     // Initialize Params Object
     var myFormData = new FormData();
@@ -30,8 +34,35 @@ export class AdmitcardComponent {
       });
   }
   onSubmit() {
-    var input = (<HTMLInputElement>document.getElementById("input_search")).value;
+    let input: any;
+    input = (<HTMLInputElement>document.getElementById("input_search")).value;
     console.log(input);
+    //GET Request
+    // this.fetchAdmitCard(input);
 
   }
+
+  /**
+  * 
+  * @param input 
+  */
+  // public fetchAdmitCard(input) {
+  //   this.uiLoaderService.start();
+  //   let getData: any{
+  //     url:'/admitCard.php',
+  //     data: input
+  //   }
+  //   this.apiService.getApiData(input).subscribe(res:any)=>{
+  //     this.uiLoaderService.stop();
+  //     if (res && res.data && res.data.statusCode == 200) {
+  //       Swal.fire({
+  //         title: 'Hurray!!',
+  //         text: res.data.msg?res.data.msg:'',
+  //         icon: 'success'
+  //       }
+  //       );
+  //     }
+  //   }
+
+  // }
 }
