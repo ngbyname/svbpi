@@ -28,37 +28,22 @@ export class ResultComponent implements OnInit {
   ) { }
   /*##################### Registration Form #####################*/
   registrationForm = this.fb.group({
-    lessons: this.fb.array([]),
-    // file: [null],
     fullName: this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(2), Validators.pattern('^[_A-z0-9]*((-|\s)*[_A-z0-9])*$')]],
       lastName: ['', [Validators.required]]
     }),
     parentsDetails: this.fb.group({
-      fatherName: ['', [Validators.required, Validators.minLength(2), Validators.pattern('^[_A-z0-9]*((-|\s)*[_A-z0-9])*$')]],
-      motherName: ['', [Validators.required]]
+      fatherName: ['', [Validators.required, Validators.minLength(2)]],
+      motherName: ['', [Validators.required,Validators.minLength(2)]]
     }),
     email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
     dob: ['', [Validators.required]],
     courseName: ['', [Validators.required]],
     enrollmentNo: ['', [Validators.required]],
-    centerCode: [{ value: '023', disabled: true }, [Validators.required]],
+    centerCode: [{ value: '023', disabled: true }],
     session: ['', [Validators.required]],
     phoneNumber: ['', [Validators.required, Validators.maxLength(10), Validators.pattern('^[0-9]+$')]],
-    // address: this.fb.group({
-    //   street: ['', [Validators.required]],
-    //   city: ['', [Validators.required]],
-    //   cityName: ['', [Validators.required]]
-    // }),
-    gender: ['male'],
-    // PasswordValidation: this.fb.group({
-    //   password: ['', Validators.required],
-    //   confirmPassword: ['', Validators.required]
-    // },{
-    //   validator: ValidatePassword.MatchPassword // your validation method
-    // }
-    // ),
-    // addDynamicElement: this.fb.array([])
+    gender: ['',[Validators.required]],
   })
 
   /*########################## File Upload ########################*/
@@ -99,9 +84,9 @@ export class ResultComponent implements OnInit {
   }
 
   // Getter method to access formcontrols
-  // get myForm() {
-  //   return this.registrationForm.controls;
-  // }
+  get myForm() {
+    return this.registrationForm.controls;
+  }
 
   // Choose city using select dropdown
   // changeCity(e) {
