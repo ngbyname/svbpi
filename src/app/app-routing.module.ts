@@ -6,13 +6,14 @@ import { ContactComponent } from './component/contact/contact.component';
 import { CoursesComponent } from './component/courses/courses.component';
 import { HomeComponent } from './component/home/home.component';
 import { ResultComponent } from './component/result/result.component';
+import { ShowResultComponent } from './component/showresult/showresult.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   // { path: '**', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutUsComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'result', component: ResultComponent },
+  { path: 'result', component: ShowResultComponent },
   { path: 'admitcard', component: AdmitcardComponent },
   { path: 'courses', component:CoursesComponent}
 ];
