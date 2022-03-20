@@ -1,0 +1,83 @@
+.bg-dark {
+    background: rgb(17, 29, 48) !important;
+}
+.text-light {
+    color: rgb(248, 249, 250) !important;
+}
+.f-items.default-padding {
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+.item {
+    margin-top: 50px;
+}
+.f-item.about {
+    padding-right: 30px;
+}
+.item img {
+    margin-bottom: 30px;
+}
+.text-italic {
+    font-style: italic;
+}
+.item .widget-title {
+    margin-bottom: 30px;
+    font-weight: 800;
+}
+ul {
+    list-style-type: none;
+    margin: 0px;
+}
+.item .link ul li {
+    margin-bottom: 15px;
+    padding-left: 15px;
+    position: relative;
+}
+.item .link li a {
+    color: rgb(204, 204, 204);
+}
+.item .link ul li::after {
+    position: absolute;
+    left: 0px;
+    top: 9px;
+    content: "";
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 6px solid rgb(188, 179, 179);
+}
+.item .opening-info li:last-child {
+    margin: 0px;
+    padding: 0px;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+}
+.footer-bottom {
+    box-shadow: rgba(105, 48, 48, 0.4) 1px 2px 3px, rgba(255, 255, 255, 0.2) 0px 1px 1px inset;
+    border-top: 1px solid rgb(0, 0, 0);
+    background: transparent;
+    padding: 20px 0px;
+}
+.footer-bottom p {
+    margin: 0px;
+}
+.footer-bottom ul {
+    margin: 0px;
+    text-align: right;
+}
+.footer-bottom .text-right li {
+    margin-left: 20px;
+    display: inline-block;
+}
+img {
+    max-width: 50%;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    outline: none;
+}
+.float-right {
+    float: right !important;
+}
