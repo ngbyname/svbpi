@@ -9,11 +9,13 @@ declare let $: any;
   styleUrls: ['./admitcard.component.scss']
 })
 export class AdmitcardComponent implements OnInit {
+  data:any;
   constructor(
     public fb: FormBuilder,
     private apiService: ApiService,
     private uiLoaderService: NgxUiLoaderService
   ) { }
+  
   ngOnInit(): void {
   }
   enrollSearch =this.fb.group({
@@ -33,21 +35,51 @@ export class AdmitcardComponent implements OnInit {
    public getAdmitCard(enrollNumber:any) {
     this.uiLoaderService.start();
     let postData: any = {
-      url: '/getResult.php',
+      url: '/getUserDetails.php',
       params:{
         enrollmentNo:enrollNumber && enrollNumber.enrollNumValue?enrollNumber.enrollNumValue:''
       } 
     }
     this.apiService.getApiData(postData).subscribe((res: any) => {
       this.uiLoaderService.stop();
-      if (res && res.data && res.data.statusCode == 200) {
-       
+      if (res && res.body && res.body.statusCode === 200) {
+        if(res.body.result){
+          this.getSubject(enrollNumber,res.body.result);
+        }
       }
     },
       (error) => {
         
       }
     );
-
+  }
+  /**
+   * 
+   * @param enrollNumber 
+   */
+  public getSubject(enrollNumber,userDetials){
+    this.uiLoaderService.start();
+    let postData: any = {
+      url: '/getSubjects.php',
+      params:{
+        enrollmentNo:enrollNumber && enrollNumber.enrollNumValue?enrollNumber.enrollNumValue:''
+      } 
+    }
+    this.apiService.getApiData(postData).subscribe((res: any) => {
+      this.uiLoaderService.stop();
+      if (res && res.body && res.body.statusCode === 200) {
+        if(res.body.result && res.body.result.length>0){
+          this.data = {
+            userData:userDetials,
+            subjectDeatils:res.body.result
+          }
+        }
+        console.log(this.data);
+      }
+    },
+      (error) => {
+        
+      }
+    );
   }
 }

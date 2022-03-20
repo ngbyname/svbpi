@@ -25,7 +25,82 @@
     </div>
   </div>
 </section>
-<section class="download-admit">
+<section class="download-admit" *ngIf="data && data.userData">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="admit-card-details">
+          <div class="admit-card-header">
+            <img src="assets/img/logoinstituteName.jpeg">
+            <h2>
+              <span>Acknowledgement Slip</span></h2>
+          </div>
+          <div class="responsive-table">
+            <table class="border-table">
+              <tr>
+                <th>Enrollment Number</th>
+                <th>Institute/Center Code</th>
+                <th>Session</th>
+              </tr>
+              <tr>
+                <td>{{data.userData.enrollmentNo}}</td>
+                <td>{{data.userData.centerCode}}</td>
+                <td>{{data.userData.session}}</td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-md-9">
+            <div class="responsive-table">
+              <table class="st-personal-details">
+                <tr>
+                  <th>Name Of Student:</th><td>{{data.userData.firstName}}&nbsp;{{data.userData.lastName}}</td>
+                </tr>
+                <tr>
+                  <th>Father's Name:</th><td>{{data.userData.fatherName}}</td>
+                </tr>
+                <tr>
+                  <th>Mother's Name:</th><td>{{data.userData.motherName}}</td>
+                </tr>
+                <tr>
+                  <th>DOB:</th><td>{{data.userData.dob}}</td>
+                </tr>
+                <tr>
+                  <th>Course Name:</th><td>{{data.userData.courseName}}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="st-profile-pic"></div>
+          </div>
+          <div class="responsive-table">
+            <table class="st-subjects">
+              <tr>
+                <th style="width: 22%;">S.No</th>
+                <th>Subjects</th>
+                <th>Subjects Code</th>
+              </tr>
+              <tr *ngFor="let subject of data.subjectDeatils;let i = index">
+                <td>{{i+1}}</td>
+                <td>{{subject.subject}}</td>
+                <td>{{subject.subjectCode}}</td>
+              </tr>
+              <tr>
+                <th>Name of Institute/Center</th>
+                <td colspan="2" style="border-top:1px solid #000">Sardar VallabhBhai Patel Institute of Technology & Management</td>
+              </tr>
+            </table>
+          </div>
+          <div class="note">
+            <p><b>Note:-</b> Your application has been accepted. Please download your enrollment slip by SVBPI official website (http://svbpi.co.in/) within 15 days</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Result section -->
+<!-- <section class="download-admit">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -115,4 +190,5 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
+

@@ -26,6 +26,12 @@ const proxyConfig = [
     target: 'http://svbpi.co.in/api',
     secure: false,
     changeOrigin: true
+  },
+  {
+    context: '/getUserDetails',
+    target: 'http://svbpi.co.in/api',
+    secure: false,
+    changeOrigin: true
   }
 ];
 /*
