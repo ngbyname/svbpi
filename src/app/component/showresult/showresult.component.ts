@@ -87,6 +87,8 @@ export class ShowResultComponent implements OnInit {
     );
   }
   public calcTotal(resultData){
+    this.totalMax = 0;
+    this.totalObtain = 0
     resultData.forEach(result => {
       result.maxNo = Number(result.maxNo);
       result.totalNo = Number(result.totalNo)
@@ -99,6 +101,5 @@ export class ShowResultComponent implements OnInit {
         this.pass = "Fail";
       }
     });
-    console.log(this.totalMax,"sdafsd",this.totalObtain)
   }
 }
