@@ -5,7 +5,7 @@ import { AdmitcardComponent } from './component/admitcard/admitcard.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { CoursesComponent } from './component/courses/courses.component';
 import { HomeComponent } from './component/home/home.component';
-import { ResultComponent } from './component/result/result.component';
+import { RegisterComponent } from './component/register/register.component';
 import { ShowResultComponent } from './component/showresult/showresult.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },

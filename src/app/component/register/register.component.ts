@@ -12,7 +12,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
   styleUrls: ['./result.component.scss'],
   providers: [DatePipe]
 })
-export class ResultComponent implements OnInit {
+export class RegisterComponent implements OnInit {
   submitted = false;
   constructor(
     public fb: FormBuilder,

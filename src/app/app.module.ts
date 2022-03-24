@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComponentComponent } from './component/component.component';
 import { HomeComponent } from './component/home/home.component';
 import { ContactComponent } from './component/contact/contact.component';
-import { ResultComponent } from './component/result/result.component';
+import { RegisterComponent } from './component/register/register.component';
 import { AboutUsComponent } from './component/about-us/about-us.component';
 import { SharedModule } from './shared/shared.module';
 // import { MatSliderModule } from '@angular/material/slider';
@@ -26,7 +26,7 @@ import { ShowResultComponent } from './component/showresult/showresult.component
     ComponentComponent,
     HomeComponent,
     ContactComponent,
-    ResultComponent,
+    RegisterComponent,
     AboutUsComponent,
     AdmitcardComponent,
     SearchComponent,
