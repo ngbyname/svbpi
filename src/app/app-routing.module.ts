@@ -15,7 +15,8 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'result', component: ShowResultComponent },
   { path: 'admitcard', component: AdmitcardComponent },
-  { path: 'courses', component:CoursesComponent}
+  { path: 'courses', component:CoursesComponent},
+  { path: 'register', component:RegisterComponent}
 ];
 
 @NgModule({

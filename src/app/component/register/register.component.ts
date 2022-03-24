@@ -1,15 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ChangeDetectorRef, ElementRef, ViewChild } from '@angular/core';
-import { FormBuilder, FormArray, Validators, FormGroup } from "@angular/forms";
+import { FormBuilder, FormArray, Validators } from "@angular/forms";
 import Swal from 'sweetalert2';
-import { formatDate } from '@angular/common';
 import { DatePipe } from '@angular/common';
 import { ApiService } from 'src/app/core/api-service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 @Component({
-  selector: 'app-result',
-  templateUrl: './result.component.html',
-  styleUrls: ['./result.component.scss'],
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss'],
   providers: [DatePipe]
 })
 export class RegisterComponent implements OnInit {
