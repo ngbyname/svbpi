@@ -177,7 +177,7 @@ export class RegisterComponent implements OnInit {
   public insertPersonalDetails(reqData) {
     this.uiLoaderService.start();
     let postData: any = {
-      url: 'http://localhost/ashwini/addUser.php',
+      url: '/addUser.php',
       data: reqData
     }
     this.apiService.postApiData(postData).subscribe((res: any) => {
