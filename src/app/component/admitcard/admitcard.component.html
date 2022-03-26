@@ -52,34 +52,36 @@
               </tr>
             </table>
           </div>
-          <div class="col-md-9">
-            <div class="responsive-table">
-              <table class="st-personal-details">
-                <tr>
-                  <th>Name Of Student:</th>
-                  <td>{{data.userData.firstName}}&nbsp;{{data.userData.lastName}}</td>
-                </tr>
-                <tr>
-                  <th>Father's Name:</th>
-                  <td>{{data.userData.fatherName}}</td>
-                </tr>
-                <tr>
-                  <th>Mother's Name:</th>
-                  <td>{{data.userData.motherName}}</td>
-                </tr>
-                <tr>
-                  <th>DOB:</th>
-                  <td>{{data.userData.dob}}</td>
-                </tr>
-                <tr>
-                  <th>Course Name:</th>
-                  <td>{{data.userData.courseName}}</td>
-                </tr>
-              </table>
+          <div class="row">
+            <div class="col-md-9">
+              <div class="responsive-table">
+                <table class="st-personal-details">
+                  <tr>
+                    <th>Name Of Student:</th>
+                    <td>{{data.userData.firstName}}&nbsp;{{data.userData.lastName}}</td>
+                  </tr>
+                  <tr>
+                    <th>Father's Name:</th>
+                    <td>{{data.userData.fatherName}}</td>
+                  </tr>
+                  <tr>
+                    <th>Mother's Name:</th>
+                    <td>{{data.userData.motherName}}</td>
+                  </tr>
+                  <tr>
+                    <th>DOB:</th>
+                    <td>{{data.userData.dob}}</td>
+                  </tr>
+                  <tr>
+                    <th>Course Name:</th>
+                    <td>{{data.userData.courseName}}</td>
+                  </tr>
+                </table>
+              </div>
             </div>
-          </div>
-          <div class="col-md-3">
-            <div class="st-profile-pic"></div>
+            <div class="col-md-3">
+              <div class="st-profile-pic"> <img class="user" src="{{data.userData.profileImage}}" alt="profile image"/></div>
+            </div>
           </div>
           <div class="responsive-table">
             <table class="st-subjects">
