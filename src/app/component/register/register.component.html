@@ -7,13 +7,13 @@
     </div>
 </section>
 
- 
+
 <div class="result-form">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="page-title">
-                    <h2 >
+                    <h2>
                         Registration Form
                     </h2>
                 </div>
@@ -87,7 +87,7 @@
                                     <input matInput placeholder="Enrollment No" formControlName="enrollmentNo">
                                 </mat-form-field>
                             </div> -->
-                            <div class="col-md-3" >
+                            <div class="col-md-3">
                                 <mat-form-field appearance="legacy" class="reg-form-field">
                                     <mat-label>Center Code</mat-label>
                                     <input matInput placeholder="Center Code" formControlName="centerCode">
@@ -117,7 +117,7 @@
                                     <mat-radio-group aria-label="Select an option" formControlName="gender">
                                         <mat-radio-button value="male">Male</mat-radio-button>
                                         <mat-radio-button value="female">Female</mat-radio-button>
-                                      </mat-radio-group>
+                                    </mat-radio-group>
                                     <!-- <input id="male" type="radio" class="custom-control-input" name="gender" formControlName="gender" value="male"
                                         checked>
                                     <label class="custom-control-label" for="male">Male</label> -->
@@ -126,6 +126,21 @@
                                     <input id="female" type="radio" class="custom-control-input" name="gender" formControlName="gender" value="female">
                                     <label class="custom-control-label" for="female">Female</label>
                                 </div> -->
+                            </div>
+                            <div class="col-md-3">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Select Course</mat-label>
+                                    <mat-select [(value)]="selectedCourse" (selectionChange)="changeCourse($event.value)">
+                                        <mat-option *ngFor="let course of course" [value]="course.value">
+                                            {{course.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <div *ngIf="selectedCourse">{{course.value}} - {{course.viewValue}}</div>
+                            </div>
+                            <div class="col-md-3">
+                                <h5>Upload Image</h5>
+                                <input type="file" (change)="uploadFile($event)">
                             </div>
                             <div class="col-md-6">
                                 <!-- <div class="avtar-upload">

@@ -5,6 +5,12 @@ import Swal from 'sweetalert2';
 import { DatePipe } from '@angular/common';
 import { ApiService } from 'src/app/core/api-service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+
+interface CourseType {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -13,6 +19,9 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 })
 export class RegisterComponent implements OnInit {
   submitted = false;
+  srcResult: any;
+  selectedCourse: any;
+  file: any;
   constructor(
     public fb: FormBuilder,
     private cd: ChangeDetectorRef,
@@ -22,6 +31,11 @@ export class RegisterComponent implements OnInit {
     private apiService: ApiService,
     private uiLoaderService: NgxUiLoaderService
   ) { }
+  course: CourseType[] = [
+    { value: 'PMS', viewValue: 'PMS' },
+    { value: 'VC', viewValue: 'VC' },
+    { value: 'MGT', viewValue: 'MGT' },
+  ];
   /*##################### Registration Form #####################*/
   registrationForm = this.fb.group({
     fullName: this.fb.group({
@@ -30,7 +44,7 @@ export class RegisterComponent implements OnInit {
     }),
     parentsDetails: this.fb.group({
       fatherName: ['', [Validators.required, Validators.minLength(2)]],
-      motherName: ['', [Validators.required,Validators.minLength(2)]]
+      motherName: ['', [Validators.required, Validators.minLength(2)]]
     }),
     email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
     dob: ['', [Validators.required]],
@@ -39,7 +53,8 @@ export class RegisterComponent implements OnInit {
     centerCode: [{ value: '023', disabled: true }],
     session: ['', [Validators.required]],
     phoneNumber: ['', [Validators.required, Validators.maxLength(10), Validators.pattern('^[0-9]+$')]],
-    gender: ['',[Validators.required]],
+    gender: ['', [Validators.required]],
+    image: [null]
   })
 
   /*########################## File Upload ########################*/
@@ -48,24 +63,13 @@ export class RegisterComponent implements OnInit {
   editFile: boolean = true;
   removeUpload: boolean = false;
 
-  uploadFile(event) {
-    let reader = new FileReader(); // HTML5 FileReader API
-    let file = event.target.files[0];
-    if (event.target.files && event.target.files[0]) {
-      reader.readAsDataURL(file);
-
-      // When file uploads set it to file formcontrol
-      reader.onload = () => {
-        this.imageUrl = reader.result;
-        this.registrationForm.patchValue({
-          file: reader.result
-        });
-        this.editFile = false;
-        this.removeUpload = true;
-      }
-      // ChangeDetectorRef since file is loading outside the zone
-      this.cd.markForCheck();
-    }
+  uploadFile(event: any) {
+    const file = event.target.files ? event.target.files[0] : '';
+    console.log(file);
+    this.registrationForm.patchValue({
+      image: file
+    });
+    this.registrationForm.get('image')?.updateValueAndValidity
   }
 
   // Function to remove uploaded file
@@ -113,12 +117,12 @@ export class RegisterComponent implements OnInit {
     } else {
       let reqData: any;
       const enrollConst: String = 'SVBPI/';
-      let currentMonth = (new Date().getMonth() + 1).toString() 
+      let currentMonth = (new Date().getMonth() + 1).toString()
       let enrollNum: any = ("" + Math.random()).substring(2, 8)
       let rollNo: any = ("" + Math.random()).substring(2, 9)
       let creationDate: any = new Date();
       creationDate = this.datePipe.transform(creationDate, 'yyyy-MM-dd');
-      let enrollmentNo = enrollConst + currentMonth + '/' + enrollNum;
+      let enrollmentNo: any;
       this.registrationForm.value.dob = this.datePipe.transform(this.registrationForm.value.dob, 'yyyy-MM-dd');
       reqData =
       {
@@ -134,16 +138,18 @@ export class RegisterComponent implements OnInit {
         email: this.registrationForm.value.email,
         dob: this.registrationForm.value.dob,
         courseName: this.registrationForm.value.courseName,
-        enrollmentNo: enrollmentNo,
         centerCode: this.registrationForm.value.centerCode,
         session: this.registrationForm.value.session,
         phoneNumber: this.registrationForm.value.phoneNumber,
         gender: this.registrationForm.value.gender,
         creationDate: creationDate,
         rollNo: rollNo,
+        enrollmentNo: enrollConst + currentMonth + this.selectedCourse + '/' + enrollNum,
+        image: this.registrationForm.get('image').value
       }
       //Post Request
       this.insertPersonalDetails(reqData);
+      console.log(reqData);
     }
   }
   /**
@@ -192,6 +198,9 @@ export class RegisterComponent implements OnInit {
 
   deleteLesson(lessonIndex: number) {
     this.lessons.removeAt(lessonIndex);
+  }
+  changeCourse(event) {
+    this.selectedCourse = event;
   }
   ngOnInit(): void {
   }

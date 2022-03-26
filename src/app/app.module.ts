@@ -19,6 +19,7 @@ import {ErrorCatchingInterceptor} from './core/interceptors/error-catching.inter
 import { ApiInterceptor } from './core/interceptors/api-interceptor';
 import { CoursesComponent } from './component/courses/courses.component';
 import { ShowResultComponent } from './component/showresult/showresult.component';
+import { MatSelectModule } from '@angular/material/select';
 // import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ShowResultComponent } from './component/showresult/showresult.component
     SharedModule,
     MaterialModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule
     // FlexLayoutModule
   ],
   providers: [

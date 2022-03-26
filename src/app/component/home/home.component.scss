@@ -140,3 +140,9 @@ ul {
   content: "K";
   margin-left: 2px;
 }
+/* Use a media query to add a breakpoint at 800px: */
+@media screen and (max-width: 800px) {
+ .show-mobile{
+   
+ }
+}
