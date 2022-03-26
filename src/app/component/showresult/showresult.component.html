@@ -1,121 +1,146 @@
 <section class="page-header" style="background: url('assets/img/header/resultn.jpeg');">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
       </div>
     </div>
-  </section>
-  <section class="admit-block">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <form role="search" [formGroup]="enrollSearch" (ngSubmit)="onSubmit()" id="enroll">
-            <div class="wrapper">
-              <div class="search_box">
-                <input class="input_search" id="input_search" type="text" placeholder="Search Enrolment no. here .."
-                  autocomplete="off" autofocus title="search" formControlName="enrollNumValue">
-                  <div class="search_btn">
-                    <button class="btn btn-black search-btn" type="submit"><mat-icon aria-hidden="false" aria-label="Example search icon">search</mat-icon></button>
-                  </div>
+  </div>
+</section>
+<section class="admit-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <form role="search" [formGroup]="enrollSearch" (ngSubmit)="onSubmit()" id="enroll">
+          <div class="wrapper">
+            <div class="search_box">
+              <input class="input_search" id="input_search" type="text" placeholder="Search Enrolment no. here .."
+                autocomplete="off" autofocus title="search" formControlName="enrollNumValue">
+              <div class="search_btn">
+                <button class="btn btn-black search-btn" type="submit">
+                  <mat-icon aria-hidden="false" aria-label="Example search icon">search</mat-icon>
+                </button>
               </div>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
-  </section>
-  <section class="download-result" *ngIf="data && data.userData">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="result-card-details">
-            <div class="result-card-header">
-              <img src="assets/img/logoinstituteName.jpeg">
-              <h2>
-                <span>ONLINE RESULT</span></h2>
-            </div>
+  </div>
+</section>
+<section class="download-result" *ngIf="data && data.userData">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="result-card-details" class="result-card-details">
+          <div class="result-card-header">
+            <img src="assets/img/logoinstituteName.jpeg">
+            <h2>
+              <span>ONLINE RESULT</span>
+            </h2>
+          </div>
+          <div class="responsive-table">
+            <table class="border-table">
+              <tr>
+                <th>Enrollment Number</th>
+                <th>Roll No.</th>
+                <th>Institute/Center Code</th>
+              </tr>
+              <tr>
+                <td>{{data.userData.enrollmentNo}}</td>
+                <td>{{data.userData.rollNo}}</td>
+                <td>{{data.userData.centerCode}}</td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-md-9">
             <div class="responsive-table">
-              <table class="border-table">
+              <table class="st-personal-details">
                 <tr>
-                  <th>Enrollment Number</th>
-                  <th>Roll No.</th>
-                  <th>Institute/Center Code</th>
+                  <th>Name Of Student:</th>
+                  <td>{{data.userData.firstName}}&nbsp;{{data.userData.lastName}}</td>
                 </tr>
                 <tr>
-                  <td>{{data.userData.enrollmentNo}}</td>
-                  <td>{{data.userData.rollNo}}</td>
-                  <td>{{data.userData.centerCode}}</td>
+                  <th>Father's Name:</th>
+                  <td>{{data.userData.fatherName}}</td>
+                </tr>
+                <tr>
+                  <th>Mother's Name:</th>
+                  <td>{{data.userData.motherName}}</td>
+                </tr>
+                <tr>
+                  <th>DOB:</th>
+                  <td>{{data.userData.dob}}</td>
+                </tr>
+                <tr>
+                  <th>Course Name:</th>
+                  <td>{{data.userData.courseName}}</td>
+                </tr>
+                <tr>
+                  <th>Session:</th>
+                  <td>{{data.userData.session}}</td>
                 </tr>
               </table>
             </div>
-            <div class="col-md-9">
-              <div class="responsive-table">
-                <table class="st-personal-details">
-                  <tr>
-                    <th>Name Of Student:</th><td>{{data.userData.firstName}}&nbsp;{{data.userData.lastName}}</td>
-                  </tr>
-                  <tr>
-                    <th>Father's Name:</th><td>{{data.userData.fatherName}}</td>
-                  </tr>
-                  <tr>
-                    <th>Mother's Name:</th><td>{{data.userData.motherName}}</td>
-                  </tr>
-                  <tr>
-                    <th>DOB:</th><td>{{data.userData.dob}}</td>
-                  </tr>
-                  <tr>
-                    <th>Course Name:</th><td>{{data.userData.courseName}}</td>
-                  </tr>
-                  <tr>
-                    <th>Session:</th><td>{{data.userData.session}}</td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="st-profile-pic"></div>
-            </div>
-            <div class="responsive-table">
-              <table class="st-subjects">
-                <tr>
-                  <th>S.No</th>
-                  <th>Subjects</th>
-                  <th>Subjects Code</th>
-                  <th>Maximum</th>
-                  <th>Theory</th>
-                  <th>Practical</th>
-                  <th>Total</th>
-                  <th>Result</th>
-                </tr>
-                <tr *ngFor="let result of data.results;let i = index">
-                  <td>{{i+1}}</td>
-                  <td>{{result.subject}}</td>
-                  <td>{{result.subjectCode}}</td>
-                  <td>{{result.maxNo}}</td>
-                  <td>{{result.theoryNo}}</td>
-                  <td>{{result.practicalNo}}</td>
-                  <td>{{result.totalNo}}</td>
-                  <td>{{result.resultStatus==='P'?'Pass':'Fail'}}</td>
-                </tr>
-                <tr style="border-top: 1px solid #000;">
-                  <th colspan="3">Total Marks</th>
-                  <td colspan="3" style="text-align: left;">{{totalMax}}</td>
-                  <td>{{totalObtain}}</td>
-                  <td>{{pass}}</td>
-                </tr>
-              </table>
-            </div>
-            <div class="note">
-              <p><b>Note:-</b> Your application has been accepted. Please download your enrollment slip by SVBPI official website (http://svbpi.co.in/) within 15 days</p>
-            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="st-profile-pic"></div>
+          </div>
+          <div class="responsive-table">
+            <table class="st-subjects">
+              <tr>
+                <th>S.No</th>
+                <th>Subjects</th>
+                <th>Subjects Code</th>
+                <th>Maximum</th>
+                <th>Theory</th>
+                <th>Practical</th>
+                <th>Total</th>
+                <th>Result</th>
+              </tr>
+              <tr *ngFor="let result of data.results;let i = index">
+                <td>{{i+1}}</td>
+                <td>{{result.subject}}</td>
+                <td>{{result.subjectCode}}</td>
+                <td>{{result.maxNo}}</td>
+                <td>{{result.theoryNo}}</td>
+                <td>{{result.practicalNo}}</td>
+                <td>{{result.totalNo}}</td>
+                <td>{{result.resultStatus==='P'?'Pass':'Fail'}}</td>
+              </tr>
+              <tr style="border-top: 1px solid #000;">
+                <th colspan="3">Total Marks</th>
+                <td colspan="3" style="text-align: left;">{{totalMax}}</td>
+                <td>{{totalObtain}}</td>
+                <td>{{pass}}</td>
+              </tr>
+            </table>
+          </div>
+          <div class="note">
+            <p><b>Note:-</b> Your application has been accepted. Please download your enrollment slip by SVBPI official
+              website (http://svbpi.co.in/) within 15 days</p>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <!-- Result section -->
-  <!-- <section class="download-admit">
+  </div>
+  <div class="form-btn-block">
+    <button class="download-admit btn btn-danger btn-lg btn-block" id="download-pdf"
+      (click)="clickFunction('result-card-details')">Download</button>
+  </div>
+  <script>
+    const downloadPdf = document
+      .getElementById("#download-pdf");
+
+    const submitForm = document
+      .querySelector("#submit-form");
+
+    downloadPdf.addEventListener("click", () => {
+    });
+
+  </script>
+</section>
+<!-- Result section -->
+<!-- <section class="download-admit">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -240,5 +265,3 @@
       </div>
     </div>
   </section> -->
-  
-  

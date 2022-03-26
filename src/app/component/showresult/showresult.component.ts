@@ -10,8 +10,8 @@ declare let $: any;
 })
 export class ShowResultComponent implements OnInit {
   data: any;
-  totalMax: number=0;
-  totalObtain: number=0;
+  totalMax: number = 0;
+  totalObtain: number = 0;
   pass: string;
   constructor(
     public fb: FormBuilder,
@@ -30,6 +30,14 @@ export class ShowResultComponent implements OnInit {
   onSubmit() {
     console.log(this.enrollSearch.value);
     this.getAdmitCard(this.enrollSearch.value);
+  }
+
+  clickFunction(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+    var originalContents = document.body.innerHTML;
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
   }
   /**
    * 
@@ -60,7 +68,7 @@ export class ShowResultComponent implements OnInit {
    * 
    * @param enrollNumber 
    */
-  public getResult(enrollNumber:any, userDetials:any) {
+  public getResult(enrollNumber: any, userDetials: any) {
     this.uiLoaderService.start();
     let postData: any = {
       url: '/getResult.php',
@@ -86,7 +94,7 @@ export class ShowResultComponent implements OnInit {
       }
     );
   }
-  public calcTotal(resultData){
+  public calcTotal(resultData) {
     this.totalMax = 0;
     this.totalObtain = 0
     resultData.forEach(result => {
@@ -94,10 +102,10 @@ export class ShowResultComponent implements OnInit {
       result.totalNo = Number(result.totalNo)
       this.totalMax += result.maxNo;
       this.totalObtain += result.totalNo;
-      if(result.resultStatus.toLowerCase() ==='p'){
-        this.pass="Pass"
+      if (result.resultStatus.toLowerCase() === 'p') {
+        this.pass = "Pass"
       }
-      else{
+      else {
         this.pass = "Fail";
       }
     });
