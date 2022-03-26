@@ -64,11 +64,16 @@ export class RegisterComponent implements OnInit {
   removeUpload: boolean = false;
 
   uploadFile(event: any) {
-    const file = event.target.files ? event.target.files[0] : '';
-    console.log(file);
-    this.registrationForm.patchValue({
-      image: file
-    });
+    // const file = event.target.files ? event.target.files[0] : '';
+    // console.log(file);
+    // this.registrationForm.patchValue({
+    //   image: file
+    // });
+
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.registrationForm.get('image').setValue(file);
+    }
     this.registrationForm.get('image')?.updateValueAndValidity
   }
 
@@ -147,9 +152,22 @@ export class RegisterComponent implements OnInit {
         enrollmentNo: enrollConst + currentMonth + this.selectedCourse + '/' + enrollNum,
         image: this.registrationForm.get('image').value
       }
+      const formData = new FormData();
+      for(let dataKey in reqData) {
+        if(dataKey === 'fullName'||dataKey === 'parentsDetails') {
+          // append nested object
+          for (let previewKey in reqData[dataKey]) {
+            formData.append(dataKey+`[${previewKey}]`, reqData[dataKey][previewKey]);
+          }
+        }
+        else {
+          formData.append(dataKey, reqData[dataKey]);
+        }
+      }
+
       //Post Request
-      this.insertPersonalDetails(reqData);
-      console.log(reqData);
+      this.insertPersonalDetails(formData);
+      console.log(formData);
     }
   }
   /**
@@ -203,5 +221,6 @@ export class RegisterComponent implements OnInit {
     this.selectedCourse = event;
   }
   ngOnInit(): void {
+    
   }
 }
