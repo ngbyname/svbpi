@@ -95,10 +95,12 @@
               </tr>
               <tr>
                 <th>Name of Institute/Center</th>
-                <td colspan="2" style="border-top:1px solid #000" *ngIf="data&&data.userData&&data.userData.enrollmentNo&&data.userData.enrollmentNo.includes('PMS')">
+                <td colspan="2" style="border-top:1px solid #000"
+                  *ngIf="data&&data.userData&&data.userData.enrollmentNo&&data.userData.enrollmentNo.includes('PMS')">
                   Sardar VallabhBhai Patel Institute Of Paramedical & Sciences
                 </td>
-                <td colspan="2" style="border-top:1px solid #000" *ngIf="data&&data.userData&&data.userData.enrollmentNo&&!(data.userData.enrollmentNo.includes('PMS'))">
+                <td colspan="2" style="border-top:1px solid #000"
+                  *ngIf="data&&data.userData&&data.userData.enrollmentNo&&!(data.userData.enrollmentNo.includes('PMS'))">
                   Sardar VallabhBhai Patel Institute of Technology & Management
                 </td>
               </tr>
@@ -112,7 +114,11 @@
       </div>
     </div>
   </div>
-  <button class="download-admit" id="download-pdf" (click)="clickFunction('admit-card-details')">Download</button>
+  <div class="form-btn-block">
+    <button class="download-admit btn btn-danger btn-lg btn-block" id="download-pdf"
+      (click)="clickFunction('admit-card-details')">Download</button>
+  </div>
+
   <script>
     const downloadPdf = document
       .getElementById("#download-pdf");
@@ -121,29 +127,8 @@
       .querySelector("#submit-form");
 
     downloadPdf.addEventListener("click", () => {
-     
-      // // Creating the element anchor that
-      // // will download pdf
-      // let element = document.createElement("a");
-      // element.href = "./GFG.pdf";
-      // element.download = "GFG.pdf";
-
-      // // Adding the element to body
-      // document.documentElement.appendChild(element);
-
-      // // Above code is equivalent to
-      // // <a href="path of file" download="file name"> 
-
-      // // onClick property, to trigger download
-      // element.click();
-
-      // // Removing the element from body
-      // document.documentElement.removeChild(element);
-
-      // // onClick property, to trigger submit form
-      // submitForm.click();
     });
-  
+
   </script>
 </section>
 <!-- Result section -->
