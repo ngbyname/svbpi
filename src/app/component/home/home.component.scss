@@ -1,32 +1,32 @@
-.banner-home{
+.banner-home {
   background-size: cover !important;
-    height: 810px;
-    width: 100%;
-    padding-bottom: 25px;
+  height: 810px;
+  width: 100%;
+  padding-bottom: 25px;
 }
-.content{
-  ul{
+.content {
+  ul {
     padding: 0px;
-    margin:30px 0px;
-    li{
+    margin: 30px 0px;
+    li {
+      display: inline-block;
+      margin-right: 50px;
+      margin-top: 15px;
+      border-right: 1px dashed #dddddd;
+      padding-right: 50px;
+      .timer {
         display: inline-block;
-        margin-right: 50px;
-        margin-top: 15px;
-        border-right: 1px dashed #dddddd;
-        padding-right: 50px;
-        .timer {
-          display: inline-block;
-          font-size: 40px;
-          font-weight: 800;
-          line-height: 1;
-          color: #FF1949;
-          position: relative;
-          z-index: 1;
-        }
-        .medium {
-          display: block;
-          color: #232323;
-          font-weight: 600;
+        font-size: 40px;
+        font-weight: 800;
+        line-height: 1;
+        color: #ff1949;
+        position: relative;
+        z-index: 1;
+      }
+      .medium {
+        display: block;
+        color: #232323;
+        font-weight: 600;
       }
     }
   }
@@ -49,23 +49,23 @@ h5::after {
   content: "";
   height: 2px;
   width: 50px;
-  background: #FF1949;
+  background: #ff1949;
   z-index: -1;
 }
-.fs-24{
+.fs-24 {
   font-size: 24px;
   line-height: 30px;
 }
-.fs-18{
+.fs-18 {
   font-size: 18px;
   line-height: 25px;
 }
-.fs-16{
+.fs-16 {
   font-size: 16px;
   line-height: 22px;
 }
 .categories-area .categories-box .item.torchred a {
-  background: #FF1949;
+  background: #ff1949;
 }
 .categories-area .categories-box .item.malachite a {
   background: #10c45c;
@@ -92,14 +92,14 @@ h5::after {
   font-size: 50px;
   margin-bottom: 25px;
 }
- .item i {
+.item i {
   margin-bottom: 20px;
   position: relative;
   z-index: 1;
   display: inline-block;
   font-size: 60px;
 }
- .item h5 {
+.item h5 {
   text-transform: capitalize;
   font-weight: 700;
   margin: 0;
@@ -114,12 +114,12 @@ h5::after {
   -moz-border-radius: 40px;
   border-radius: 40px;
 }
- .timer {
+.timer {
   display: inline-block;
   font-size: 40px;
   font-weight: 800;
   line-height: 1;
-  color: #FF1949;
+  color: #ff1949;
   position: relative;
   z-index: 1;
 }
@@ -142,7 +142,10 @@ ul {
 }
 /* Use a media query to add a breakpoint at 800px: */
 @media screen and (max-width: 800px) {
- .show-mobile{
-   
- }
+  .show-mobile {
+  }
+
+  .bg-green {
+    background-color: #93ed7e;
+  }
 }
