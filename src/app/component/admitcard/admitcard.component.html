@@ -31,7 +31,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="admit-card-details">
+        <div id="admit-card-details" class="admit-card-details">
           <div class="admit-card-header">
             <img src="assets/img/logoinstituteName.jpeg">
             <h2>
@@ -95,22 +95,11 @@
               </tr>
               <tr>
                 <th>Name of Institute/Center</th>
-                <!-- <td>
-                  <script>
-                    var centerName;
-                    function centerName() {
-                      if (subject.enrollmentNo.includes('PMS')) {
-                        centerName = "Sardar VallabhBhai Patel Institute Of Paramedical & Sciences";
-                      } else {
-                        centerName = "Sardar VallabhBhai Patel Institute of Technology & Management";
-                      }
-                      document.write(centerName);
-                    }
-
-                  </script>
-                </td> -->
-                <td colspan="2" style="border-top:1px solid #000">
-                  <script>centerName(centerName)</script>
+                <td colspan="2" style="border-top:1px solid #000" *ngIf="data&&data.userData&&data.userData.enrollmentNo&&data.userData.enrollmentNo.includes('PMS')">
+                  Sardar VallabhBhai Patel Institute Of Paramedical & Sciences
+                </td>
+                <td colspan="2" style="border-top:1px solid #000" *ngIf="data&&data.userData&&data.userData.enrollmentNo&&!(data.userData.enrollmentNo.includes('PMS'))">
+                  Sardar VallabhBhai Patel Institute of Technology & Management
                 </td>
               </tr>
             </table>
@@ -123,37 +112,48 @@
       </div>
     </div>
   </div>
-  <button class="download-admit" id="download-pdf">Download</button>
+  <button class="download-admit" id="download-pdf" (click)="clickFunction('admit-card-details')">Download</button>
   <script>
     const downloadPdf = document
-      .querySelector("#download-pdf");
+      .getElementById("download-pdf");
 
     const submitForm = document
       .querySelector("#submit-form");
 
+document.addEventListener('click',function(e){
+    if(e.target && e.target.id== 'brnPrepend'){
+          //do something
+          console.log("clicked");
+     }
+     console.log(e.target.id)
+ });
+
     downloadPdf.addEventListener("click", () => {
+      console.log("clicked");
+      printDiv('admit-card-details');
+      
+      // // Creating the element anchor that
+      // // will download pdf
+      // let element = document.createElement("a");
+      // element.href = "./GFG.pdf";
+      // element.download = "GFG.pdf";
 
-      // Creating the element anchor that
-      // will download pdf
-      let element = document.createElement("a");
-      element.href = "./GFG.pdf";
-      element.download = "GFG.pdf";
+      // // Adding the element to body
+      // document.documentElement.appendChild(element);
 
-      // Adding the element to body
-      document.documentElement.appendChild(element);
+      // // Above code is equivalent to
+      // // <a href="path of file" download="file name"> 
 
-      // Above code is equivalent to
-      // <a href="path of file" download="file name"> 
+      // // onClick property, to trigger download
+      // element.click();
 
-      // onClick property, to trigger download
-      element.click();
+      // // Removing the element from body
+      // document.documentElement.removeChild(element);
 
-      // Removing the element from body
-      document.documentElement.removeChild(element);
-
-      // onClick property, to trigger submit form
-      submitForm.click();
+      // // onClick property, to trigger submit form
+      // submitForm.click();
     });
+  
   </script>
 </section>
 <!-- Result section -->
