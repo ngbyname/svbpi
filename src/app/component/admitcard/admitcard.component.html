@@ -115,23 +115,13 @@
   <button class="download-admit" id="download-pdf" (click)="clickFunction('admit-card-details')">Download</button>
   <script>
     const downloadPdf = document
-      .getElementById("download-pdf");
+      .getElementById("#download-pdf");
 
     const submitForm = document
       .querySelector("#submit-form");
 
-document.addEventListener('click',function(e){
-    if(e.target && e.target.id== 'brnPrepend'){
-          //do something
-          console.log("clicked");
-     }
-     console.log(e.target.id)
- });
-
     downloadPdf.addEventListener("click", () => {
-      console.log("clicked");
-      printDiv('admit-card-details');
-      
+     
       // // Creating the element anchor that
       // // will download pdf
       // let element = document.createElement("a");

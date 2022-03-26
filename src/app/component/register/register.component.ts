@@ -164,10 +164,10 @@ export class RegisterComponent implements OnInit {
     }
     this.apiService.postApiData(postData).subscribe((res: any) => {
       this.uiLoaderService.stop();
-      if (res && res.data && res.data.statusCode == 200) {
+      if (res && res.body&& res.body.statusCode == 200) {
         Swal.fire({
           title: 'Hurray!!',
-          text: res.data.msg ? res.data.msg : '',
+          text: res.body.msg ? res.body.msg : '',
           icon: 'success'
         }
         );
