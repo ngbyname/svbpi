@@ -166,8 +166,8 @@ export class RegisterComponent implements OnInit {
       }
 
       //Post Request
-      this.insertPersonalDetails(formData);
-      console.log(formData);
+      this.insertPersonalDetails(reqData);
+      console.log(reqData);
     }
   }
   /**
