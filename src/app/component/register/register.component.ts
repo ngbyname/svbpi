@@ -153,11 +153,11 @@ export class RegisterComponent implements OnInit {
         image: this.registrationForm.get('image').value
       }
       const formData = new FormData();
-      for(let dataKey in reqData) {
-        if(dataKey === 'fullName'||dataKey === 'parentsDetails') {
+      for (let dataKey in reqData) {
+        if (dataKey === 'fullName' || dataKey === 'parentsDetails') {
           // append nested object
           for (let previewKey in reqData[dataKey]) {
-            formData.append(dataKey+`[${previewKey}]`, reqData[dataKey][previewKey]);
+            formData.append(dataKey + `[${previewKey}]`, reqData[dataKey][previewKey]);
           }
         }
         else {
@@ -167,7 +167,7 @@ export class RegisterComponent implements OnInit {
 
       //Post Request
       this.insertPersonalDetails(formData);
-      console.log(formData);
+      //console.log(formData);
     }
   }
   /**
@@ -182,11 +182,19 @@ export class RegisterComponent implements OnInit {
     }
     this.apiService.postApiData(postData).subscribe((res: any) => {
       this.uiLoaderService.stop();
-      if (res && res.body&& res.body.statusCode == 200) {
+      if (res && res.body && res.body.statusCode == 200) {
         Swal.fire({
           title: 'Hurray!!',
           text: res.body.msg ? res.body.msg : '',
           icon: 'success'
+        }
+        );
+      }
+      else {
+        Swal.fire({
+          title: 'Aah!!',
+          text: res.body.msg ? res.body.msg : '',
+          icon: 'error'
         }
         );
       }
@@ -221,6 +229,6 @@ export class RegisterComponent implements OnInit {
     this.selectedCourse = event;
   }
   ngOnInit(): void {
-    
+
   }
 }

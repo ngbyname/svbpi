@@ -1,9 +1,8 @@
-// * {
-//   font-family: "Montserrat", sans-serif;
-//   margin: 0;
-//   padding: 0;
-//   box-sizing: border-box;
-// }
+@media print {
+  body * {
+      visibility: hidden; // part to hide at the time of print
+      -webkit-print-color-adjust: exact !important; // not necessary use   
+  }
 body {
     background: #e0dbef;
   }
@@ -118,8 +117,16 @@ body {
       }
     }
   }
+  .user {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
   .form-btn-block {
     margin: 20px 0px;
     text-align: center;
   }
-  
+}

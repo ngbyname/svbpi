@@ -54,6 +54,7 @@ export class AdmitcardComponent implements OnInit {
     }
     this.apiService.getApiData(postData).subscribe((res: any) => {
       this.uiLoaderService.stop();
+      this.data=null;
       if (res && res.body && res.body.statusCode === 200) {
         if(res.body.result){
           this.getSubject(enrollNumber,res.body.result);
