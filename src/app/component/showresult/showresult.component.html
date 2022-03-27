@@ -34,7 +34,7 @@
         <div id="result-card-details" class="result-card-details">
           <div class="result-card-header">
             <img src="assets/img/admitcardlogo.png">
-            
+
             <h2>
               <span>ONLINE RESULT</span>
             </h2>
@@ -126,7 +126,7 @@
   </div>
   <div class="form-btn-block">
     <button class="download-admit btn btn-danger btn-lg btn-block" id="download-pdf"
-      (click)="clickFunction('result-card-details')">Download</button>
+      (click)="clickFunction('result-card-details',data.userData.enrollmentNo)">Download</button>
   </div>
   <script>
     const downloadPdf = document

@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { ApiService } from "src/app/core/api-service";
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import html2PDF from 'jspdf-html2canvas';
+
 declare let $: any;
 @Component({
   selector: 'app-showresult',
@@ -32,12 +34,15 @@ export class ShowResultComponent implements OnInit {
     this.getAdmitCard(this.enrollSearch.value);
   }
 
-  clickFunction(divName) {
-    var printContents = document.getElementById(divName).innerHTML;
-    var originalContents = document.body.innerHTML;
-    document.body.innerHTML = printContents;
-    window.print();
-    document.body.innerHTML = originalContents;
+  clickFunction(divName, name) {
+    var printContents = document.getElementById(divName);
+    html2PDF(printContents, {
+      jsPDF: {
+        format: 'a4',
+      },
+      imageType: 'image/jpeg',
+      output: './' + name + '.pdf'
+    });
   }
   /**
    * 
