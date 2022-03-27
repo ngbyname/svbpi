@@ -80,9 +80,10 @@
               </div>
             </div>
             <div class="col-md-3">
-              <div class="st-profile-pic"> <img class="user" src="{{data.userData.profileImage}}" alt="profile image"/></div>
+              <div class="st-profile-pic"> <img class="user" src="{{data.userData.profileImage}}" alt="profile image" />
+              </div>
             </div>
-          </div> 
+          </div>
           <div class="responsive-table">
             <table class="st-subjects">
               <tr>
@@ -133,8 +134,16 @@
 
   </script>
 </section>
-<section  class="download-admit" *ngIf="!(data)">
-No Result Found
+<section class="no-result-found" *ngIf="!(data)">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p>No Result Found</p>
+      </div>
+    </div>
+  </div>
+
+
 </section>
 <!-- Result section -->
 <!-- <section class="download-admit">
