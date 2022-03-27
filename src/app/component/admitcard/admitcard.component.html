@@ -30,7 +30,7 @@
 <section class="download-admit" *ngIf="data && data.userData">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 admit-final">
         <div id="admit-card-details" class="admit-card-details">
           <div class="admit-card-header">
             <img src="assets/img/admitcardlogo.png">
@@ -52,8 +52,8 @@
               </tr>
             </table>
           </div>
-          <div class="row">
-            <div class="col-md-9">
+          <div class="row flex-container">
+            <div class="col-md-9 flex-child">
               <div class="responsive-table">
                 <table class="st-personal-details">
                   <tr>
@@ -79,7 +79,7 @@
                 </table>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 flex-child">
               <div class="st-profile-pic"> <img class="user" src="{{data.userData.profileImage}}" alt="profile image"/></div>
             </div>
           </div> 
