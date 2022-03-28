@@ -30,7 +30,7 @@
 <section class="download-result" *ngIf="data && data.userData">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 result-final">
         <div id="result-card-details" class="result-card-details">
           <div class="result-card-header">
             <img src="assets/img/admitcardlogo.png">
@@ -53,34 +53,40 @@
               </tr>
             </table>
           </div>
-          <div class="col-md-9">
-            <div class="responsive-table">
-              <table class="st-personal-details">
-                <tr>
-                  <th>Name Of Student:</th>
-                  <td>{{data.userData.firstName}}&nbsp;{{data.userData.lastName}}</td>
-                </tr>
-                <tr>
-                  <th>Father's Name:</th>
-                  <td>{{data.userData.fatherName}}</td>
-                </tr>
-                <tr>
-                  <th>Mother's Name:</th>
-                  <td>{{data.userData.motherName}}</td>
-                </tr>
-                <tr>
-                  <th>DOB:</th>
-                  <td>{{data.userData.dob}}</td>
-                </tr>
-                <tr>
-                  <th>Course Name:</th>
-                  <td>{{data.userData.courseName}}</td>
-                </tr>
-                <tr>
-                  <th>Session:</th>
-                  <td>{{data.userData.session}}</td>
-                </tr>
-              </table>
+          <div class="row flex-container">
+            <div class="col-md-9 flex-child">
+              <div class="responsive-table">
+                <table class="st-personal-details">
+                  <tr>
+                    <th>Name Of Student:</th>
+                    <td>{{data.userData.firstName}}&nbsp;{{data.userData.lastName}}</td>
+                  </tr>
+                  <tr>
+                    <th>Father's Name:</th>
+                    <td>{{data.userData.fatherName}}</td>
+                  </tr>
+                  <tr>
+                    <th>Mother's Name:</th>
+                    <td>{{data.userData.motherName}}</td>
+                  </tr>
+                  <tr>
+                    <th>DOB:</th>
+                    <td>{{data.userData.dob}}</td>
+                  </tr>
+                  <tr>
+                    <th>Course Name:</th>
+                    <td>{{data.userData.courseName}}</td>
+                  </tr>
+                  <tr>
+                    <th>Session:</th>
+                    <td>{{data.userData.session}}</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="col-md-3 flex-child">
+              <div class="st-profile-pic"> <img class="user" src="{{data.userData.profileImage}}" alt="profile image" />
+              </div>
             </div>
           </div>
           <div class="col-md-3">
@@ -117,7 +123,8 @@
             </table>
           </div>
           <div class="note">
-            <p><b>Note:-</b> Your application has been accepted. Please download your enrollment slip by SVBPI official
+            <p><b>Note:-</b> Your application has been accepted. Please download your enrollment slip by SVBPI
+              official
               website (http://svbpi.co.in/) within 15 days</p>
           </div>
         </div>

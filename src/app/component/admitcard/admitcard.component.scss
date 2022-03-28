@@ -62,7 +62,6 @@ body {
   margin-bottom: 40px;
   padding: 15px;
   min-height:1000px;
-
   overflow-x: auto;
 
 }
@@ -124,15 +123,6 @@ body {
       font-weight: 16px;
     }
   }
-}
-
-.user {
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
 }
 
 .form-btn-block {
@@ -202,15 +192,6 @@ body {
   
   .note {
       font-weight: 16px
-  }
-  
-  .user  {
-      display: inline-block;
-      width: 150px;
-      height: 150px;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover
   }
   .flex-child {
       flex: 1;
