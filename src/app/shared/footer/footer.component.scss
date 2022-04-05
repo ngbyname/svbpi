@@ -9,7 +9,7 @@
     padding-bottom: 40px;
 }
 .item {
-    margin-top: 50px;
+    // margin-top: 50px;
 }
 .f-item.about {
     padding-right: 30px;
@@ -27,6 +27,7 @@
 ul {
     list-style-type: none;
     margin: 0px;
+    padding-left: 0;
 }
 .item .link ul li {
     margin-bottom: 15px;
@@ -35,11 +36,12 @@ ul {
 }
 .item .link li a {
     color: rgb(204, 204, 204);
+    text-decoration: none;
 }
 .item .link ul li::after {
     position: absolute;
     left: 0px;
-    top: 9px;
+    top: 5px;
     content: "";
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
@@ -70,6 +72,22 @@ ul {
     margin-left: 20px;
     display: inline-block;
 }
+
+.opening-info{
+    margin-top: 25px;
+    h5{
+        font-size: 16px;
+        font-weight: bold;
+    }
+    ul{
+        li{
+            span{
+                display: block;
+            }
+        }
+    }
+}
+
 img {
     max-width: 50%;
     border-width: initial;
