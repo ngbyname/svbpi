@@ -1,44 +1,30 @@
 <mat-toolbar color="custom" class="custom-toolbar">  
   <div class="top-hader">
-    <div class="logo">
-      <a routerLink="/home">
-        <img src="assets/img/logonew.jpg" class="img-responsive">
-      </a>
-    </div>
-    <ul class="navigation-items">
-      <li><a mat-button href="/home">Home</a></li>
-      <li><a mat-button href="/about">About</a></li>
-      <li><a mat-button href="/result">Result</a></li>
-      <li><a mat-button href="/courses">Courses</a></li>
-      <li><a mat-button href="/admitcard">Admit Card</a></li>
-      <li><a mat-button href="/contact">Contact</a></li>
-    </ul>
-    <button mat-icon-button (click)="onToggleSidenav()" class="menu-button">
-      <mat-icon>menu</mat-icon>
-  </button>
-    <!-- <div class="container">
+    <div class="container">
       <div class="row">
-        <div class="col-md-2 col-xs-3">
-          <a routerLink="/home" class="logo">
-            <img src="assets/img/logonew.jpg" class="img-responsive">
-          </a>
-        </div>
-        <div class="hide-mobile col-md-9 text-right">
-          <ul class="navigation-items">
-            <li><a mat-button href="/home">Home</a></li>
-            <li><a mat-button href="/about">About</a></li>
-            <li><a mat-button href="/result">Result</a></li>
-            <li><a mat-button href="/courses">Courses</a></li>
-            <li><a mat-button href="/admitcard">Admit Card</a></li>
-            <li><a mat-button href="/contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="show-mobile col-md-9 text-right">
-          <button mat-icon-button (click)="onToggleSidenav()">
-              <mat-icon>menu</mat-icon>
+        <div class="col-md-12">
+          <div class="navigation-block">
+            <div class="logo">
+              <a routerLink="/home">
+                <img src="assets/images/mbbs-counselling-logo.svg" class="img-responsive" alt="SVBPI">
+              </a>
+            </div>
+            <div class="navigation">
+              <ul class="navigation-items">
+                <li><a class="nav-link" href="/home">Home</a></li>
+                <li><a class="nav-link" href="/about">About</a></li>
+                <li><a class="nav-link" href="/result">Result</a></li>
+                <li><a class="nav-link" href="/courses">Courses</a></li>
+                <li><a class="nav-link" href="/admitcard">Admit Card</a></li>
+                <li><a class="nav-link" href="/contact">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <button mat-icon-button (click)="onToggleSidenav()" class="menu-button">
+            <mat-icon>menu</mat-icon>
           </button>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </mat-toolbar>

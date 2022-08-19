@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: "Cabin" !important; }
 img{ max-width: 100%; }
 .mat-sidenav-container, .mat-sidenav-content, .mat-sidenav {
   height: 100%;
@@ -24,15 +24,22 @@ img{ max-width: 100%; }
 .mat-sidenav {
   width: 250px;
 }
+a,p,h1,h2,h3,h4,h5,h6,span,div{
+  font-family: "Cabin";
+}
 a {
   text-decoration: none;
   color: white;
+  text-decoration: none !important;
 }
 
 a:hover, a:active{
   color: lightgray;
 }
-
+.main-page{
+  width: 100%;
+  float: left;
+}
 .navigation-items{
   list-style-type: none;
   padding: 0;

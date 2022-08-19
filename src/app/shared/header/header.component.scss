@@ -1,7 +1,7 @@
 .top-hader{
   padding: 10px 0;
   width: 100%;
-  background-color: #E0FFFF;
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,10 +20,29 @@
     display: none;
   }
 }
-
+.navigation-block{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .logo{
+    width: 10%;
+  }
+  .navigation{
+    width: 90%;
+  }
+  .nav-link{
+    font-size: 16px;
+    color: #F77412;
+    letter-spacing: .5px;
+  }
+  .nav-link:hover{
+    color: #f18939;
+  }
+}
 @media all and (max-width: 767px){
   .top-hader{
     .logo{
+      width: 30%;
       img{
       }
     }
@@ -32,6 +51,9 @@
     }
     .menu-button{
       display: block;
+      position: absolute;
+      top: 0px;
+      right: 15px;
     }
   }
 }
