@@ -16,6 +16,7 @@ section {
   padding-bottom: 60px;
   width: 60%;
   margin: 0 auto;
+  font-family: "Cabin";
   h2 {
     font-size: 32px;
     font-weight: bold;
@@ -24,6 +25,7 @@ section {
     padding-bottom: 20px;
     position: relative;
     color: #37517e;
+    font-family: "Cabin";
   }
   h2::before {
     content: "";
@@ -176,16 +178,16 @@ h5 {
   padding-bottom: 24px;
   font-size: 20px;
 }
-h5::after {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  content: "";
-  height: 2px;
-  width: 50px;
-  background: #ff1949;
-  z-index: -1;
-}
+// h5::after {
+//   position: absolute;
+//   left: 0;
+//   bottom: 0;
+//   content: "";
+//   height: 2px;
+//   width: 50px;
+//   background: #ff1949;
+//   z-index: -1;
+// }
 .fs-24 {
   font-size: 24px;
   line-height: 30px;
@@ -335,12 +337,83 @@ ul {
 }
 .btn-block {
   margin-top: 30px;
+  form{
+    margin-top: 30px;
+    background: #fff;
+    padding: 6px 10px;
+    position: relative;
+    border-radius: 50px;
+    box-shadow: 0px 2px 15px rgb(0 0 0 / 6%);
+    text-align: left;
+    max-width: 50%;
+    margin:0 auto;
+  }
+  form input[type=email] {
+    border: 0;
+    padding: 4px 8px;
+    width: calc(100% - 100px);
+  }
 }
 .bg-white .info-title h4 {
   color: #37517e;
 }
 .bg-white .info-title h2 {
   color: #37517e;
+}
+form input[type=submit] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border: 0;
+  background: none;
+  font-size: 16px;
+  padding: 0 20px;
+  background: #F77412;
+  color: #fff;
+  transition: 0.3s;
+  border-radius: 50px;
+  box-shadow: 0px 2px 15px rgb(0 0 0 / 10%);
+}
+.pd-l-40 {
+  padding-left: 40px;
+}
+.mg-l-10 {
+  margin-left: 10px;
+}
+.icon-block {
+  width: 15%;
+  margin-right: 10px;
+  text-align: center;
+}
+.icon-block img {
+  max-width: 100%;
+  width: 50px;
+}
+.text-block h5 {
+  font-size: 16px;
+  font-family: "Cabin";
+  padding-bottom: 10px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  color: #37517e;
+}
+.help-content {
+  display: flex;
+  flex: 1;
+  position: relative;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.flex-right {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.text-block {
+  width: 85%;
 }
 /* Use a media query to add a breakpoint at 800px: */
 @media screen and (max-width: 800px) {
