@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-
+  public pageTitleText:string="Contact Us"
   constructor() { }
 
   ngOnInit(): void {
