@@ -1,4 +1,4 @@
-<app-banner banner="assets/img/siteName.png"></app-banner>
+<app-banner [pageTitle]="pagetTitleText"></app-banner>
 
 <!-- <section class="page-header" style="background: url('assets/img/siteName.png');">
   <div class="container">
@@ -8,78 +8,115 @@
     </div>
   </div>
 </section> -->
-
-<div class="about-section">
-  <h1>About Us</h1>
-  <p>
-    Sardar VallabhBhai Patel Institute of Technology & Management was established to promote the quality in the
-    Technical & Management Courses. The council conducts the examinations, issues Diploma/Post Diploma certificates &
-    registration to pass out candidates. The Council Affiliate the institution & issues guidelines itself to regulate
-    the Technology & Management courses.</p>
-  <p>
-    Sardar VallabhBhai Patel Institute of Technology & Management providing quality education to Technical personnel
-    since 2011.
-  </p>
-  <p>
-    Sardar VallabhBhai Patel Institute of Technology & Management has been legally established by educationists & social
-    workers and aim of the council is to provide better technical and skilled-based education for the communities.
-    Council has running and management dynamic Technical Management education programs across the Country under the
-    guidelines of MHRD.
-  </p>
-  <p>
-    Sardar VallabhBhai Patel Institute of Technology & Management has launched 121 more than Technical Education Related
-    Courses to start through Training system and distance education covering the practical and theory in indicated
-    centers across the country.
-  </p>
-</div>
-
-<div class="our-mission">
-  <h1>OUR MISSION
-  </h1>
-  <p>
-    Our mission is to provide a safe and supportive learning environment with opportunities for each student to develop
-    the technical skills & knowledge to become a social, responsible and successful citizen of India.
-  </p>
-</div>
-
-<div class="our-values">
-  <h1>VISION & VALUES
-  </h1>
-  <p>
-    Creation of Human Resource pool with the spectrum of technical competencies, while ensuring universal access to
-    serve as an instrument of bringing about technological transformation.
-  </p>
-</div>
-
-<h2 style="text-align:center">Top Pick Courses</h2>
-<div class="row">
-  <div class="column">
-    <div class="card">
-      <img src="assets/img/background2.jpeg" alt="Jane" style="width:100%">
-      <div class="container">
-        <h2>Mechanical Engineering</h2>
-        <p>ITI/Diploma/Engineering</p>
+<section class="about-us">
+  <div class="container">
+    <div class="row">
+      <div class="about-section">
+        <div class="col-md-6 col-xs-12">
+          <div class="about-img">
+            <img src="assets/images/about-image-1.png" class="img-circle">
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <div class="about-section-text">
+            <div class="section-title">
+              <h2>Discover services we provided</h2>
+              <p>Sardar VallabhBhai Patel Institute of Technology & Management was established to promote the quality in the
+                Technical & Management Courses. The council conducts the examinations, issues Diploma/Post Diploma certificates &
+                registration to pass out candidates. The Council Affiliate the institution & issues guidelines itself to regulate
+                the Technology & Management courses.</p>
+                <p>Sardar VallabhBhai Patel Institute of Technology & Management providing quality education to Technical personnel
+                  since 2011.</p>
+                  <p>
+                    Sardar VallabhBhai Patel Institute of Technology & Management has been legally established by educationists & social
+                    workers and aim of the council is to provide better technical and skilled-based education for the communities.
+                    Council has running and management dynamic Technical Management education programs across the Country under the
+                    guidelines of MHRD.
+                  </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-  <div class="column">
-    <div class="card">
-      <img src="assets/img/background3.jpeg" alt="Mike" style="width:100%">
-      <div class="container">
-        <h2>Automobile Engineerings</h2>
-        <p>ITI/Diploma/Engineering</p>
+</section>
+<!-- <section class="about-us" style="background-color: #ccc;">
+  <div class="container">
+    <div class="row">
+      <div class="about-section">
+        <div class="col-md-6">
+          <div class="about-section-text">
+            <div class="section-title">
+              <h2>Discover services we provided</h2>
+              <p>Sardar VallabhBhai Patel Institute of Technology & Management was established to promote the quality in the
+                Technical & Management Courses. The council conducts the examinations, issues Diploma/Post Diploma certificates &
+                registration to pass out candidates. The Council Affiliate the institution & issues guidelines itself to regulate
+                the Technology & Management courses.</p>
+                <p>Sardar VallabhBhai Patel Institute of Technology & Management providing quality education to Technical personnel
+                  since 2011.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="about-img">
+            <img src="assets/images/about-image-1.png" class="img-circle">
+          </div>
+        </div>
       </div>
     </div>
   </div>
+</section> -->
+<section id="services" class="about-core bg-white">
+  <div class="container aos-init aos-animate" data-aos="fade-up">
+    <div class="section-title">
+      <h2>Discover services we provided</h2>
+      <p style="text-align:center;">India's Most Trusted Medical - UG &amp; PG Admission Counsellors; 100% Assured Admission For NEET UG 2022 Qualified Students</p>
+    </div>
 
-  <div class="column">
-    <div class="card">
-      <img src="assets/img/background5.jpeg" alt="John" style="width:100%">
-      <div class="container">
-        <h2>Airchtecture Engineering</h2>
-        <p>ITI/Diploma/Engineering</p>
+    <div class="row discover-block mg-20">
+      <div class="col-lg-4">
+        <div class="card-block-3">
+          <div class="image-full-block">
+            <img src="assets/images/our-mission.jpeg" class="img-fluid">
+          </div>
+          <div class="clg-block-2 card-border-2 clr-bg-1">
+            <div class="clg-desc-2">
+              <h4 class="clg-title">OUR MISSION</h4>
+              <p>Our mission is to provide a safe and supportive learning environment with opportunities for each student to develop the technical skills & knowledge to become a social, responsible and successful citizen of India.</p>
+              <!-- <div class="btn-list">
+                <a class="my-buttion app" href="#" data-toggle="modal" data-target="#exampleModalCenter">Apply</a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card-block-3">
+        <div class="image-full-block">
+          <img src="assets/images/our-vision.jpeg" class="img-fluid">
+        </div>
+        <div class="clg-block-2 card-border-2 clr-bg-2">
+          <div class="clg-desc-2">
+            <h4 class="clg-title">VISION</h4>
+            <p>Creation of Human Resource pool with the spectrum of technical competencies, while ensuring universal access to serve as an instrument of bringing about technological transformation.</p>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card-block-3">
+        <div class="image-full-block">
+          <img src="assets/images/value.jpeg" class="img-fluid">
+        </div>
+        <div class="clg-block-2 card-border-2 clr-bg-3">
+          <div class="clg-desc-2">
+            <!-- <img src="assets/images/college-predictor.png" class="img-fluid"> -->
+            <h4 class="clg-title">VALUES</h4>
+            <p>Creation of Human Resource pool with the spectrum of technical competencies, while ensuring universal access to serve as an instrument of bringing about technological transformation.</p>
+          </div>
+        </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about-us.component.scss']
 })
 export class AboutUsComponent implements OnInit {
-
+  public pagetTitleText:string="About Us"
   constructor() { }
 
   ngOnInit(): void {
