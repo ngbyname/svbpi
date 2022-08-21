@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BannerComponent implements OnInit {
 
   @Input() pageTitle: String;
+  @Input() isHome:boolean=false;
   imageObject:any;
   constructor() { }
 

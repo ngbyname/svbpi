@@ -12,6 +12,7 @@ declare let $: any;
 })
 export class AdmitcardComponent implements OnInit {
   data:any;
+  pageTitleText:string="Admit Card";
   constructor(
     public fb: FormBuilder,
     private apiService: ApiService,

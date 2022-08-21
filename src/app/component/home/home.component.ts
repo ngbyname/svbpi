@@ -6,11 +6,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  slides = [
-    {'image': 'assets/img/background1.jpeg'},
-    {'image': 'assets/img/background2.jpeg'},
-    {'image': 'assets/img/background3.jpeg'}
-  ];
+  public isHome=true;
+  public pageTitleText='';
   constructor() { }
 
   ngOnInit(): void {

@@ -1,4 +1,47 @@
-<section id="page-banner" class="d-flex align-items-center">
+<ng-container *ngIf="isHome;else innerPage">
+  <section id="hero" class="d-flex align-items-center">
+    <div class="banner-section">
+      <!-- <div class="animation-part">
+        <div class="first-circle"></div>
+        <div class="second-circle"></div>
+        <div class="icon-1"></div>
+        <div class="icon-2"></div>
+      </div> -->
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-5 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+            <span>Welcome to</span>
+            <h1>Sardar Vallabh Bhai Patel Industrial Training Institute</h1>
+            <p><span class="clr-blue aos-init aos-animate" data-aos="fade-down" data-aos-delay="400">Sardar Vallabh Bhai Patel industrial Training Institute is a registered trade mark division of SARDAR VALLABH BHAI EDUCATIONAL SOCIETY. Regd. to Govt of NCT Delhi having its Regt. no 3274,This society is registered by Govt. of India under society ACT 1860 under 21 provision.</span>	
+                <!-- <span>Management Quota | IP Quota | NRI Quota</span>
+                <span class="color-yellow aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">Affordable Low Budget Packages</span> -->
+            </p>
+            <div class="d-flex justify-content-center justify-content-lg-start">
+              <a href="#" class="btn-get-started scrollto">Read More</a>
+              <!-- <a href="#mbbs-colleges" class="btn-get-started btn-with-border"><span>Compare MBBS Colleges</span></a> -->
+            </div>
+            <div class="chip-block">
+              <h5>TOP COURSES</h5>
+              <div class="d-flex course-name">
+                <div>Diploma</div>
+                <div>BBA</div>
+                <div>BCA</div>
+                <div>MCA</div>
+                <div>Diploma in pharmacy</div>
+                <div>NURSING ASST</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7 order-1 order-lg-2 hero-img aos-init aos-animate" data-aos="zoom-in" data-aos-delay="200">
+            <img src="assets/images/svbp-banner.png" class="img-fluid" alt="MBBS Admission 2022">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-container>
+<ng-template #innerPage>
+  <section id="page-banner" class="d-flex align-items-center">
     <div class="banner-section">
       <div class="container">
         <div class="row">
@@ -9,3 +52,4 @@
       </div>
     </div>
   </section>
+</ng-template> 

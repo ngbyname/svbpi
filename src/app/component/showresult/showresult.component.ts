@@ -15,6 +15,7 @@ export class ShowResultComponent implements OnInit {
   totalMax: number = 0;
   totalObtain: number = 0;
   pass: string;
+  pageTitleText:string="Show Results"
   constructor(
     public fb: FormBuilder,
     private apiService: ApiService,

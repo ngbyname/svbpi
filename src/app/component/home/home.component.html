@@ -1,15 +1,5 @@
 <div class="main-page">
-  <app-banner banner="assets/img/header/latestlsitename.png"></app-banner>
-  <!-- <section class="banner-home" style="background: url('assets/img/header/main-page.jpeg');">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="header">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
+  <app-banner [pageTitle]="pageTitleText" [isHome]="true"></app-banner>
   <section id="services" class="service section-bg">
     <div class="container aos-init aos-animate" data-aos="fade-up">
       <div class="section-title">
@@ -124,6 +114,7 @@
               <img src="assets/images/college-mapping.png" alt="College Mapping Based on Rank">
             </div>
           </div>
+
         </div>
         <div class="col-md-2 col-sm-4 aos-init aos-animate" data-aos="fade-up">
           <div class="man-icon">
