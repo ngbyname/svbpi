@@ -8,10 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BannerComponent implements OnInit {
 
   @Input() banner: String;
-
+  imageObject:any;
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
