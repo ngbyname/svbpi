@@ -106,10 +106,12 @@ p {
         color: #000;
         /* min-width: 95px; */
         text-align: center;
+        justify-content: center;
         margin-bottom: 20px;
         margin-left: 0px;
         margin-right: 20px;
         align-items: center;
+        min-width: 105px;
         box-shadow: 0px 0px 5px rgb(0 0 0 / 40%);
 
     }
@@ -156,5 +158,27 @@ p {
 @media (max-width:768px){
     #page-banner{
         height: 100%;
+        h1{
+            font-size: 22px;
+        }
+    }
+    #hero{
+        h1{
+            font-size: 22px;
+            line-height: 30px;
+        }
+        p{
+            font-size: 14px;
+            line-height: 22px;
+        }
+    }
+    .course-name{
+        div{
+            min-width: 90px
+        }
+    }
+    .section-title{
+        width: 100%;
+        h2{font-size: 22px;}
     }
 }

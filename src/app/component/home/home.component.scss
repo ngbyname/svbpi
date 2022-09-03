@@ -423,4 +423,17 @@ form input[type=submit] {
   .bg-green {
     background-color: #93ed7e;
   }
+  .section-title{
+    width: 100%;
+    h2{font-size: 22px;}
+  }
+  .card-border-2{
+    margin-bottom: 20px;
+  }
+  .img-icon-with-form{
+    display: none;
+  }
+  .cta{height: 100%;}
+  .btn-block{width: 100%;}
+  .item{width: 50% !important;}
 }

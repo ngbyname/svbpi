@@ -118,3 +118,11 @@ img {
 .f-item li a{
     color:#ffffff;
 }
+@media (max-width:800px){
+    .item{width: 50% !important;}
+    .footer-bottom{
+        p{
+            text-align: center;
+        }
+    }
+}
