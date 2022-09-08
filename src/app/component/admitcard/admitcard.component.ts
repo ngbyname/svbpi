@@ -13,6 +13,7 @@ declare let $: any;
 export class AdmitcardComponent implements OnInit {
   data:any;
   pageTitleText:string="Admit Card";
+  imageSrc:string='assets/images/banner3.jpeg';
   constructor(
     public fb: FormBuilder,
     private apiService: ApiService,
@@ -61,9 +62,12 @@ export class AdmitcardComponent implements OnInit {
           this.getSubject(enrollNumber,res.body.result);
         }
       }
+      else{
+        console.log(res);
+      }
     },
       (error) => {
-        
+        console.log(error);
       }
     );
   }

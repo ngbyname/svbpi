@@ -9,11 +9,16 @@ export class BannerComponent implements OnInit {
 
   @Input() pageTitle: String;
   @Input() isHome:boolean=false;
+  @Input() pageImageSrc:string='';
   imageObject:any;
   constructor() { }
 
   ngOnInit(): void {
 
   }
-
+  public setBackground(imgSrc){
+    const style: any = {};
+    style['background-image'] = imgSrc;
+    return style;
+  }
 }

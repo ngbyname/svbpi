@@ -15,7 +15,8 @@ export class ShowResultComponent implements OnInit {
   totalMax: number = 0;
   totalObtain: number = 0;
   pass: string;
-  pageTitleText:string="Show Results"
+  pageTitleText:string="Show Results";
+  imageSrc:string='assets/images/result_banner.jpeg';
   constructor(
     public fb: FormBuilder,
     private apiService: ApiService,
