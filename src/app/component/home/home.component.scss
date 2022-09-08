@@ -419,7 +419,7 @@ form input[type=submit] {
 @media screen and (max-width: 800px) {
   .show-mobile {
   }
-
+  .form-block{max-width: 100%;}
   .bg-green {
     background-color: #93ed7e;
   }
