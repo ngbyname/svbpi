@@ -226,3 +226,49 @@ body {
     text-align: center;
   }
 }
+@media screen and (max-width:720px){
+  .result-final{
+    .result-card-details{
+      min-height: 700px;
+    }
+    .result-card-header{
+      h2{
+        margin-top:5px !important;
+        margin-bottom: 10px !important;
+        span{
+          font-size: 18px;
+        }
+      }
+    }
+    .responsive-table{
+      table{
+        th{
+          padding: 0px;
+          font-size: 12px;
+        }
+        td{
+          padding: 5px;
+          font-size: 12px;
+        }
+        .st-personal-details{
+          th{
+            font-size: 12px;
+          }
+          td{
+            font-size: 12px;
+          }
+        }
+        .st-subjects{
+          th{
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+  .note{
+    p{
+      margin-bottom: 0px;
+    }
+  }
+}
