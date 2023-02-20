@@ -20,6 +20,7 @@ import { ApiInterceptor } from './core/interceptors/api-interceptor';
 import { CoursesComponent } from './component/courses/courses.component';
 import { ShowResultComponent } from './component/showresult/showresult.component';
 import { MatSelectModule } from '@angular/material/select';
+// import { FormatTitlePipe } from './core/pipe/format-title.pipe';
 // import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { MatSelectModule } from '@angular/material/select';
     SearchComponent,
     CoursesComponent,
     ShowResultComponent
+    // FormatTitlePipe
   ],
   imports: [
     BrowserModule,

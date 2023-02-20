@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { DatePipe } from '@angular/common';
 import { ApiService } from 'src/app/core/api-service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { STEP_ITEMS } from './register-form.config';
 
 interface CourseType {
   value: string;
@@ -22,6 +23,9 @@ export class RegisterComponent implements OnInit {
   srcResult: any;
   selectedCourse: any;
   file: any;
+  formContent: any;
+  formData: any;
+  activeStepIndex: number;
   constructor(
     public fb: FormBuilder,
     private cd: ChangeDetectorRef,
@@ -229,6 +233,13 @@ export class RegisterComponent implements OnInit {
     this.selectedCourse = event;
   }
   ngOnInit(): void {
+    this.formContent = STEP_ITEMS;
+    this.formData = {};
+  }
+  onFormSubmit(formData: any): void {
+    this.formData = formData;
 
+    // post form data here
+    alert(JSON.stringify(this.formData));
   }
 }
