@@ -7,8 +7,9 @@ import { HeaderComponent } from './header/header.component';
 import { MaterialModule } from '../../material.module';
 import { BannerComponent } from './banner/banner.component';
 import { RouterModule } from '@angular/router';
+import { RegistrationFormComponent } from './registration-form/registration-form.component';
 @NgModule({
-  declarations: [NavigationComponent, SliderComponent, FooterComponent, HeaderComponent, BannerComponent],
+  declarations: [NavigationComponent, SliderComponent, FooterComponent, HeaderComponent, BannerComponent, RegistrationFormComponent],
   imports: [
     CommonModule,
     MaterialModule,

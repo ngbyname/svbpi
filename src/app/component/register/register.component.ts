@@ -50,7 +50,7 @@ export class RegisterComponent implements OnInit {
     dob: ['', [Validators.required]],
     courseName: ['', [Validators.required]],
     enrollmentNo: ['', [Validators.required]],
-    centerCode: [{ value: '023', disabled: true }],
+    centerCode: [{ value: '023', disabled: false }],
     session: ['', [Validators.required]],
     phoneNumber: ['', [Validators.required, Validators.maxLength(10), Validators.pattern('^[0-9]+$')]],
     gender: ['', [Validators.required]],

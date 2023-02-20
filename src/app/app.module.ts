@@ -3,7 +3,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ComponentComponent } from './component/component.component';
+// import { ComponentComponent } from './component/component.component';
 import { HomeComponent } from './component/home/home.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { RegisterComponent } from './component/register/register.component';
@@ -24,7 +24,7 @@ import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
-    ComponentComponent,
+    // ComponentComponent,
     HomeComponent,
     ContactComponent,
     RegisterComponent,
