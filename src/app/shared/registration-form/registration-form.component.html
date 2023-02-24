@@ -113,7 +113,7 @@
                         <div class="row">    
                             <div class="col-md-3">
                                 <h5>Upload Image</h5>
-                                <input type="file" (change)="uploadFile($event)" accept="image/png">
+                                <input type="file" (change)="uploadFile($event)" accept="{{allowFiles.join(',')}}">
                             </div>
                             <div class="col-md-6">
                                 <!-- <div class="avtar-upload">
@@ -131,24 +131,44 @@
                     </div> 
                 </div>
                 <div class="btn-block">
-                    <button mat-button matStepperNext (click)="personalDetailsFormData()">Next</button>
+                    <!-- <button mat-button [ngClass]="disableEnableClass(personalDetails)" [attr.disable]="isPersoanlFormBtnDisable()" matStepperNext (click)="personalDetailsFormData()">Next</button> -->
+                    <button mat-button  matStepperNext (click)="personalDetailsFormData()">Next</button>
                 </div>
             </form>
         </div>
         <!-- <ng-template matStepLabel>Personal Details</ng-template> -->
     </mat-step>
     <mat-step [stepControl]="subjectsDetails" label="Subjects Details">
-      <form [formGroup]="subjectsDetails">
-        <mat-form-field appearance="fill">
-            <mat-label>Address</mat-label>
-            <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-                   required>
-          </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+        <div class="form-block">
+            <form [formGroup]="subjectsDetails">
+                <div class="form-card">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <mat-form-field appearance="legacy" class="reg-form-field">
+                                <mat-label>Subject Name</mat-label>
+                                <input matInput placeholder="Subject Name" formControlName="subjectName">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                            <mat-form-field appearance="legacy" class="reg-form-field">
+                                <mat-label>Subject Code</mat-label>
+                                <input matInput placeholder="Subject Code" formControlName="subjectCode">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                            <mat-form-field appearance="legacy" class="reg-form-field">
+                                <mat-label>Enrollment Number</mat-label>
+                                <input matInput placeholder="Enrollment Number" formControlName="enrollmentNumber">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
         </div>
-      </form>
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>

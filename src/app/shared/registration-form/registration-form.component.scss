@@ -24,5 +24,10 @@
         line-height: 1;
         padding: 10px;
     }
+    .disable-btn{
+        pointer-events: none;
+        opacity: .5;
+        cursor: auto;
+    }
 }
   
