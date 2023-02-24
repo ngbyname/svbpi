@@ -1,119 +1,94 @@
 import {
   ChangeDetectorRef,
   Component,
+  ElementRef,
   EventEmitter,
   Input,
   OnInit,
-  Output
+  Output,
+  ViewChild
 } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-
+import { FormBuilder, FormGroup, Validators,ReactiveFormsModule } from "@angular/forms";
+interface CourseType {
+  value: string;
+  viewValue: string;
+}
 @Component({
   selector: 'app-registration-form',
   templateUrl: './registration-form.component.html',
   styleUrls: ['./registration-form.component.scss']
 })
 export class RegistrationFormComponent implements OnInit {
-  @Input() formContent: any;
-  @Output() readonly formSubmit: EventEmitter<any> = new EventEmitter<any>();
-  activeStepIndex: number;
-  currentFormContent: Array<any>;
-  formData: any;
-  formFields: Array<Array<string>>;
-  masterFormFields: Array<string>;
-  stepItems: Array<any>;
-  masterForm: Array<FormGroup>;
+  isLinear = false;
+  personalDetails:FormGroup;
+  subjectsDetails:FormGroup;
+  selectedCourse: any;
+  file: any;
+  @ViewChild('fileInput') el: ElementRef;
+  course: CourseType[] = [
+    { value: 'PMS', viewValue: 'PMS' },
+    { value: 'VC', viewValue: 'VC' },
+    { value: 'MGT', viewValue: 'MGT' },
+  ];
   constructor(
-    private readonly _formBuilder: FormBuilder,
-    private _cd: ChangeDetectorRef
+    private fb: FormBuilder
   ) { }
 
   ngOnInit(): void {
-    this.activeStepIndex = 0;
-    this.masterForm = [];
-    this.currentFormContent = [];
-    this.formFields = [];
-    this.stepItems = this.formContent;
-
-    this.stepItems.forEach((data, i) => {
-      this.currentFormContent.push(this.stepItems[i]["data"]); // holds name, validators, placeholder of all steps
-      this.formFields.push(Object.keys(this.currentFormContent[i])); // holds string values for each field of all steps
-      this.masterForm.push(this.buildForm(this.currentFormContent[i])); // holds all form groups
+    this.personalDetails = this.fb.group({
+      fullName: this.fb.group({
+        firstName: ['', [Validators.required, Validators.minLength(2), Validators.pattern('^[_A-z0-9]*((-|\s)*[_A-z0-9])*$')]],
+        lastName: ['', [Validators.required]]
+      }),
+      parentsDetails: this.fb.group({
+        fatherName: ['', [Validators.required, Validators.minLength(2)]],
+        motherName: ['', [Validators.required, Validators.minLength(2)]]
+      }),
+      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+      dob: ['', [Validators.required]],
+      courseName: ['', [Validators.required]],
+      enrollmentNo: ['', [Validators.required]],
+      centerCode: [{ value: '023', disabled: false }],
+      session: ['', [Validators.required]],
+      phoneNumber: ['', [Validators.required, Validators.maxLength(10), Validators.pattern('^[0-9]+$')]],
+      gender: ['', [Validators.required]],
+      image: [null]
+    })
+    this.subjectsDetails = this.fb.group({
+      secondCtrl: ['', Validators.required],
+    })
+  }
+  /**
+   * 
+   * @param event 
+   */
+  public uploadFile(event: any):void{
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.personalDetails.get('image').setValue(file);
+    }
+    this.personalDetails.get('image')?.updateValueAndValidity
+  }
+  /**
+   * 
+   */
+  public removeUploadedFile():void {
+    let newFileList = Array.from(this.el.nativeElement.files);
+    // this.imageUrl = 'https://i.pinimg.com/236x/d6/27/d9/d627d9cda385317de4812a4f7bd922e9--man--iron-man.jpg';
+    // this.editFile = true;
+    // this.removeUpload = false;
+    this.personalDetails.patchValue({
+      file: [null]
     });
   }
-  // build separate FormGroups for each form
-  buildForm(currentFormContent: any): FormGroup {
-    const formDetails = Object.keys(currentFormContent).reduce((obj, key) => {
-      obj[key] = ["", this.getValidators(currentFormContent[key])];
-
-      return obj;
-    }, {});
-
-    return this._formBuilder.group(formDetails);
+  /**
+   * 
+   * @param event 
+   */
+  public changeCourse(event) {
+    this.selectedCourse = event;
   }
-
-  onFileChange(event: any): void {
-    const reader = new FileReader();
-
-    if (event.target.files && event.target.files.length) {
-      const [file] = event.target.files;
-      reader.readAsDataURL(file);
-
-      reader.onload = () => {
-        this.masterForm[this.activeStepIndex].patchValue({
-          file: reader.result
-        });
-
-        // need to run CD since file load runs outside of zone
-        this._cd.markForCheck();
-      };
-    }
+  public personalDetailsFormData():void{
+    console.log("personal Details",this.personalDetails.value);
   }
-  getValidators(formField: any): Validators {
-    const fieldValidators = Object.keys(formField.validations).map(
-      validator => {
-        if (validator === "required") {
-          return Validators[validator];
-        } else {
-          return Validators[validator](formField.validations[validator]);
-        }
-      }
-    );
-
-    return fieldValidators;
-  }
-  // get validation error messages per error, per field
-  getValidationMessage(formIndex: number, formFieldName: string): string {
-    const formErrors = this.masterForm[formIndex].get(formFieldName).errors;
-    const errorMessages = this.currentFormContent[formIndex][formFieldName]
-      .errors;
-    const validationError = errorMessages[Object.keys(formErrors)[0]];
-
-    return validationError;
-  }
-
-  goToStep(step: string): void {
-    this.activeStepIndex =
-      step === "prev" ? this.activeStepIndex - 1 : this.activeStepIndex + 1;
-
-    this.setFormPreview();
-  }
-
-  setFormPreview(): void {
-    this.formData = this.masterForm.reduce(
-      (masterForm, currentForm) => ({ ...masterForm, ...currentForm.value }),
-      {}
-    );
-
-    this.masterFormFields = Object.keys(this.formData);
-  }
-
-  onFormSubmit(): void {
-    this.formSubmit.emit(this.formData);
-  }
-
-  trackByFn(index: number): number {
-    return index;
-  }
-
 }

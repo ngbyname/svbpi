@@ -9,12 +9,17 @@ import { BannerComponent } from './banner/banner.component';
 import { RouterModule } from '@angular/router';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { FormatTitlePipe } from '../core/pipe/format-title.pipe';
+import { MatStepperModule } from '@angular/material/stepper';
+import {ReactiveFormsModule, FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [NavigationComponent, SliderComponent, FooterComponent, HeaderComponent, BannerComponent, RegistrationFormComponent,FormatTitlePipe],
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports:[HeaderComponent, NavigationComponent, FooterComponent, BannerComponent,RegistrationFormComponent]
 })

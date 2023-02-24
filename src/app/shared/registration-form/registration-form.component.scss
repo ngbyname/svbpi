@@ -5,5 +5,24 @@
   .validation-error {
     color: #cc3c3c;
     font-size: 0.750em;
-  }
+}
+.form-block{
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
+    margin-top: 10px;
+    .btn-block{
+        text-align: center;
+        margin:20px 0px 0px;
+    }
+    button{
+        text-align: center;
+        background: orange;
+        min-width: 120px;
+        color: #fff;
+        font-size: 20px;
+        line-height: 1;
+        padding: 10px;
+    }
+}
   
