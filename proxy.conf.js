@@ -11,22 +11,40 @@ const HttpsProxyAgent = require('https-proxy-agent');
 const proxyConfig = [
   {
     context: '/addUser',
-    target: 'http://svbpi.co.in/api',
+    target: 'http://svbpi.com/api',
     secure: false,
     changeOrigin: true
   },
   {
     context: '/getResult',
-    target: 'http://svbpi.co.in/api',
+    target: 'http://svbpi.com/api',
     secure: false,
     changeOrigin: true
   },
   {
     context: '/getSubjects',
-    target: 'http://svbpi.co.in/api',
+    target: 'http://svbpi.com/api',
     secure: false,
     changeOrigin: true
-  }
+  },
+  {
+    context: '/getUserDetails',
+    target: 'http://svbpi.com/api',
+    secure: false,
+    changeOrigin: true
+  },
+  {
+    context: '/addSubject',
+    target: 'http://svbpi.com/api',
+    secure: false,
+    changeOrigin: true
+  },
+  {
+    context: '/addResul',
+    target: 'http://svbpi.com/api',
+    secure: false,
+    changeOrigin: true
+  },
 ];
 /*
  * Configures a corporate proxy agent for the API proxy if needed.

@@ -1,0 +1,82 @@
+.field-label {
+    font-size: 0.875em;
+  }
+  
+  .validation-error {
+    color: #cc3c3c;
+    font-size: 0.750em;
+}
+.form-block{
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
+    margin-top: 10px;
+    .btn-block{
+        text-align: center;
+        margin:20px 0px 0px;
+    }
+    button{
+        text-align: center;
+        background: orange;
+        min-width: 120px;
+        color: #fff;
+        font-size: 20px;
+        line-height: 1;
+        padding: 10px;
+    }
+    .disable-btn{
+        pointer-events: none;
+        opacity: .5;
+        cursor: auto;
+    }
+}
+.btn-block{
+    display: flex;
+    justify-content: space-between;
+}
+.add-subj{
+    text-align: right;
+    padding-bottom: 15px;
+}
+.form-col{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 25px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,.2);
+    label{
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    .input-data{
+        line-height: 30px;
+        font-size: 14px;
+        border-bottom: 1px solid #d4d4d4 !important;
+        border: none;
+        outline: none;
+        padding: 7px;
+    }
+}
+.subj-add{
+    cursor: pointer;
+}
+.form-row{display: flex;}
+.marks-row:nth-child(1){
+    display: none;
+}
+.succes-msg{
+    text-align: center;
+    box-shadow: 0px 0px 9px rgba(0,0,0,.2);
+    padding: 20px;
+    margin: 20px;
+    width: 50%;
+    margin: 30px auto;
+    font-size: 24px;
+    color: orange;
+    line-height: 80px;
+    border-radius: 5px;
+}
+.pd10{
+    padding:0px 10px;
+}

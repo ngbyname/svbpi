@@ -1,0 +1,413 @@
+<mat-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="personalDetails" label="Personal Details">
+        <div class="form-block">
+            <form [formGroup]="personalDetails">
+                <div class="form-card">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="student-details" formGroupName="fullName">
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <mat-form-field appearance="legacy" class="reg-form-field">
+                                            <mat-label>First Name</mat-label>
+                                            <input matInput placeholder="First Name" formControlName="firstName">
+                                        </mat-form-field>
+                                        <!-- <label>First name</label>
+                                        <input type="text" class="form-control" formControlName="firstName"> -->
+                                    </div>
+                                    <div class="col-md-6">
+                                        <mat-form-field appearance="legacy" class="reg-form-field">
+                                            <mat-label>Last Name</mat-label>
+                                            <input matInput placeholder="Last Name" formControlName="lastName">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col md-6">
+                            <div class="parent-details" formGroupName="parentsDetails">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <mat-form-field appearance="legacy" class="reg-form-field">
+                                            <mat-label>Father's name</mat-label>
+                                            <input matInput placeholder="Father's Name" formControlName="fatherName">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <mat-form-field appearance="legacy" class="reg-form-field">
+                                            <mat-label>Mother's name</mat-label>
+                                            <input matInput placeholder="Mother's name" formControlName="motherName">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="student-dettails">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <mat-form-field color="accent" appearance="fill" class="reg-form-field">
+                                    <mat-label>Enter DOB</mat-label>
+                                    <input matInput [matDatepicker]="picker" formControlName="dob">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                                <mat-form-field appearance="legacy" class="reg-form-field">
+                                    <mat-label>Course Name</mat-label>
+                                    <input matInput placeholder="Course Name" formControlName="courseName">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                                <mat-form-field appearance="legacy" class="reg-form-field">
+                                    <mat-label>Center Code</mat-label>
+                                    <input matInput placeholder="Center Code" formControlName="centerCode">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                                <mat-form-field appearance="legacy" class="reg-form-field">
+                                    <mat-label>Session</mat-label>
+                                    <input matInput placeholder="Session" formControlName="session">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="student-dettails">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <mat-form-field appearance="legacy" class="reg-form-field">
+                                    <mat-label>Phone Number</mat-label>
+                                    <input matInput placeholder="Phone Number" formControlName="phoneNumber">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                                <mat-form-field appearance="legacy" class="reg-form-field">
+                                    <mat-label>Email Id</mat-label>
+                                    <input matInput placeholder="Email Id" formControlName="email">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                                <h5>Gender</h5>
+                                <div class="custom-control custom-radio">
+                                    <mat-radio-group aria-label="Select an option" formControlName="gender">
+                                        <mat-radio-button value="male">Male</mat-radio-button>
+                                        <mat-radio-button value="female">Female</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Select Course</mat-label>
+                                    <mat-select [(value)]="selectedCourse" (selectionChange)="changeCourse($event.value)">
+                                        <mat-option *ngFor="let course of course" [value]="course.value">
+                                            {{course.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <div *ngIf="selectedCourse">{{course.value}} - {{course.viewValue}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="student-dettails">
+                        <div class="row">    
+                            <div class="col-md-3">
+                                <h5>Upload Image</h5>
+                                <input type="file" (change)="uploadFile($event)" accept="{{allowFiles.join(',')}}">
+                            </div>
+                            <div class="col-md-6">
+                                <!-- <div class="avtar-upload">
+                                    <div class="avtar-edit">
+                                        <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput (change)="uploadFile($event)" />
+                                        <label for="imageUpload" *ngIf="editFile" [ngClass]="['custom-label', 'upload-image']"></label>
+                                        <label *ngIf="removeUpload" [ngClass]="['custom-label', 'remove-image']" (click)="removeUploadedFile()"></label>
+                                    </div>
+                                    <div class="avatar-preview">
+                                        <div id="imagePreview" [style.backgroundImage]="'url('+ imageUrl +')'"></div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="btn-block">
+                    <!-- <button mat-button [ngClass]="disableEnableClass(personalDetails)" [attr.disable]="isPersoanlFormBtnDisable()" matStepperNext (click)="personalDetailsFormData()">Next</button> -->
+                    <button mat-button  matStepperNext (click)="personalDetailsFormData()">Next</button>
+                </div>
+            </form>
+        </div>
+        <!-- <ng-template matStepLabel>Personal Details</ng-template> -->
+    </mat-step>
+    <mat-step [stepControl] label="Subjects Details">
+        <div class="form-block">
+            <div class="add-subj">
+                <a class="subj-add" (click)="addSubject()">
+                  +<span translate>Add Subject</span>
+                </a>
+            </div>
+                <div class="form-card">
+                    <!-- <form [formGroup]="form">
+                        <div formArrayName="cities">
+                          <div *ngFor="let city of cities.controls; index as i">
+                            <input [formControlName]="i" placeholder="City">
+                          </div>
+                        </div>
+                        <button>Submit</button>
+                      </form> -->
+                        <form [formGroup]="subjectForm">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div formArrayName="subjectsName">
+                                        <div class="form-col" *ngFor="let city of subjectsName.controls; index as i">
+                                            <label>Enter Subject Name</label>
+                                            <input class="input-data" [formControlName]="i" placeholder="Enter Subject Name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div formArrayName="subjectsCode">
+                                        <div class="form-col" *ngFor="let city of subjectsCode.controls; index as i">
+                                            <label>Enter Subject Code</label>
+                                            <input class="input-data" [formControlName]="i" placeholder="Enter Subject Code">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    <!-- <div class="form-rwo" *ngFor="let hobby of hobbiesArray.controls;last as isLast;index as idx">
+                        <mat-form-field>
+                            <input matInput [formControl]="">
+                        </mat-form-field>
+                        <button mat-icon-button color="primary" class="btn btn-remove" (click)="removeInputControl(idx)" *ngIf="hobbiesArray.length>1">
+                            <mat-icon>remove_circle</mat-icon>
+                        </button>
+                        <button mat-icon-button color="primary" class="btn btn-add" *ngIf="isLast" (click)="addInputControl()">
+                            <mat-icon>add_circle</mat-icon>
+                        </button>
+                    </div>
+                    <div>
+                        <div>
+                            {{hobbiesArray.valueChanges |async | json}}
+                        </div>
+                    </div> -->
+                </div>
+                <div class="btn-block">
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext (click)="subjectDetailsFormData()">Next</button>
+                </div>
+        </div>
+    </mat-step>
+    <mat-step [stepControl]="marksDetails" label="Marks Details">
+        <div class="form-block">
+            <form [formGroup]="marksDetails">
+                <div class="form-card">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Enrollment Number:- <span>{{enrollmentNumber}}</span></p>
+                        </div>
+                    </div>
+                    <div class="row" formArrayName="marksList" *ngIf="marksList.controls.length>0">
+                        <div *ngFor="let city of marksList.controls; index as i">
+                            <div class="form-row" [formGroupName]="i">
+                                <div class="col-md-2">
+                                    <div class="form-col">
+                                        <label>Enter Subject Name</label>
+                                        <input class="input-data" formControlName="marksSubjectName" placeholder="Enter Subject Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-col">
+                                        <label>Enter Subject Code</label>
+                                        <input class="input-data" formControlName="marksSubjectCode" placeholder="Enter Subject Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-col">
+                                        <label>Max number</label>
+                                        <input class="input-data" formControlName="maxNumber" placeholder="Enter Subject Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-col">
+                                        <label>Theory number</label>
+                                        <input class="input-data" formControlName="theoryNumber" placeholder="Enter Theory Number">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-col">
+                                        <label>Practicle number</label>
+                                        <input class="input-data" formControlName="practicleNumber" placeholder="Enter Practicle Number">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-col">
+                                        <label>Total number</label>
+                                        <input class="input-data" formControlName="totalNumber" placeholder="Enter Total Number">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-2">
+                            <div>
+                                <div class="form-col" *ngFor="let city of subjectsName.controls; index as i">
+                                    <label>Enter Subject Name</label>
+                                    <input class="input-data" [formControlName]="i" placeholder="Enter Subject Name">
+                                </div>
+                            </div>
+                            <mat-form-field appearance="legacy" class="reg-form-field">
+                                <mat-label>Subject Name</mat-label>
+                                <input matInput placeholder="Subject Name" formControlName="subjectName">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                            <mat-form-field appearance="legacy" class="reg-form-field">
+                                <mat-label>Subject Code</mat-label>
+                                <input matInput placeholder="Subject Code" formControlName="subjectCode">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                            <mat-form-field appearance="legacy" class="reg-form-field">
+                                <mat-label>Max number</mat-label>
+                                <input matInput placeholder="Maximum number" formControlName="maxNumber">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                            <mat-form-field appearance="legacy" class="reg-form-field">
+                                <mat-label>Theory</mat-label>
+                                <input matInput placeholder="Theory" (blur)="updateTotalNum($event,'theoryNumber')" formControlName="theoryNumber">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                            <mat-form-field appearance="legacy" class="reg-form-field">
+                                <mat-label>Practicle</mat-label>
+                                <input matInput placeholder="Practicle" (blur)="updateTotalNum($event,'practicleNumber')" formControlName="practicleNumber">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                            <mat-form-field appearance="legacy" class="reg-form-field">
+                                <mat-label>Total Number</mat-label>
+                                <input matInput placeholder="Total" formControlName="totalNumber">
+                            </mat-form-field>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="btn-block">
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+
+
+
+
+<!-- <div>
+    <h1 class="form-heading">{{ stepItems[activeStepIndex].label }}</h1>
+  
+    <ng-container
+      *ngFor="let form of masterForm; let i = index; trackBy: trackByFn"
+    >
+      <form
+        action=""
+        [formGroup]="masterForm[i]"
+        *ngIf="i === activeStepIndex || masterForm.length === 1"
+      >
+        <div class="">
+          <div class="fields-container">
+            <div
+              *ngFor="let field of formFields[i]; trackBy: trackByFn"
+              [ngSwitch]="currentFormContent[i][field].type"
+            >
+              <div class="full-width">
+                <label class="field-label text-bold" [for]="field">{{ field | formatTitle }}</label>
+  
+                <ng-container *ngSwitchCase="'textarea'">
+                  <textarea
+                    [id]="field"
+                    [formControlName]="field"
+                    [placeholder]="currentFormContent[i][field].placeholder"></textarea>
+                </ng-container>
+  
+                <ng-container *ngSwitchCase="'file'">
+                  <input type="file" (change)="onFileChange($event)" />
+                </ng-container>
+  
+                <ng-container *ngSwitchCase="'select'">
+                  <select [formControlName]="field" [id]="field">
+                    <option value="">Select your Country</option>
+                    <option
+                      *ngFor="let option of currentFormContent[i][field].options; trackBy: trackByFn"
+                      [value]="option.name"
+                      >{{ option.name }}</option>
+                  </select>
+                </ng-container>
+  
+                <ng-container *ngSwitchDefault>
+                  <input
+                    [type]="currentFormContent[i][field].type"
+                    [formControlName]="field"
+                    [id]="field"
+                    [placeholder]="currentFormContent[i][field].placeholder"
+                  />
+                </ng-container>
+              </div>
+  
+              <p
+                class="validation-error"
+                *ngIf="
+                  (masterForm[i].get(field).dirty ||
+                    masterForm[i].get(field).touched) &&
+                  masterForm[i].get(field).invalid &&
+                  masterForm[i].get(field).errors
+                "
+              >
+                {{ getValidationMessage(i, field) }}
+              </p>
+            </div>
+          </div>
+  
+          <div
+            class="preview-container"
+            *ngIf="activeStepIndex === stepItems.length - 1">
+            <ul>
+              <li
+                class="form-details-list"
+                *ngFor="let field of masterFormFields; trackBy: trackByFn">
+                <span class="text-bold">{{ field | formatTitle }}</span>
+                <span>{{ formData[field] || 'N/A' }}</span>
+              </li>
+            </ul>
+          </div>
+  
+          <div class="button-container">
+            <button
+              type="button"
+              [disabled]="!activeStepIndex"
+              (click)="goToStep('prev')"
+            >Previous</button>
+            <button
+              *ngIf="activeStepIndex === stepItems.length - 1"
+              type="button"
+              (click)="onFormSubmit()"
+            >Submit</button>
+            <button
+              type="button"
+              [disabled]="activeStepIndex === stepItems.length - 1 || masterForm[i].invalid"
+              (click)="goToStep('next')"
+            >Next</button>
+          </div>
+        </div>
+      </form>
+    </ng-container>
+  </div>
+   -->

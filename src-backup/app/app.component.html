@@ -1,0 +1,19 @@
+<app-layout>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+      <!--this is a place for us to add side-nav code-->
+      <app-navigation (sideNavClose)="sidenav.close()"></app-navigation>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-header (sideNavToggle)="sidenav.toggle()"></app-header>
+      <!--in here all the content must reside. We will add a navigation header as well-->
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+      <div class="page-footer" >
+        <app-footer></app-footer>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</app-layout>
+
