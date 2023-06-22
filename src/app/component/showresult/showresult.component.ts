@@ -109,7 +109,7 @@ export class ShowResultComponent implements OnInit {
       result.totalNo = Number(result.totalNo)
       this.totalMax += result.maxNo;
       this.totalObtain += result.totalNo;
-      if (result.resultStatus.toLowerCase() === 'p') {
+      if (result.resultStatus.toLowerCase() === 'pass') {
         this.pass = "Pass"
       }
       else {
